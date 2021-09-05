@@ -50,6 +50,22 @@ services:
     ports:
       - ${REDIS_PORT:-6379}:6379
 
+  horizon:
+    container_name: plex-bot-horizon
+    image: phlak/plex-bot-dev:local
+    depends_on:
+      - redis
+    environment:
+      APP_ENV: 'local'
+      LOG_CHANNEL: 'stderr'
+      CACHE_DRIVER: 'redis'
+      REDIS_HOST: 'redis'
+      REDIS_PORT: 6379
+    volumes:
+      - ./:/var/www/html
+    user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
+    command: php artisan horizon
+
 volumes:
   mysql-data:
     driver: local
