@@ -2,9 +2,9 @@ version: '3.4'
 
 services:
   app:
-    container_name: plex-bot-app
+    container_name: discord-bot-app
     build: .
-    image: phlak/plex-bot-dev:local
+    image: phlak/discord-bot-dev:local
     depends_on:
       - mysql
       - redis
@@ -22,7 +22,7 @@ services:
     ports:
       - ${APP_PORT:-80}:80
     extra_hosts:
-      - plex-bot.local:127.0.0.1
+      - discord-bot.local:127.0.0.1
       - host.docker.internal:${DOCKER_HOST_IP:-172.17.0.1}
     volumes:
       - ./:/var/www/html
@@ -31,7 +31,7 @@ services:
     user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
 
   mysql:
-    container_name: plex-bot-mysql
+    container_name: discord-bot-mysql
     image: mysql:8.0
     ports:
       - ${DB_PORT:-3306}:3306
@@ -45,14 +45,14 @@ services:
       - ./.docker/mysql/:/docker-entrypoint-initdb.d
 
   redis:
-    container_name: plex-bot-redis
+    container_name: discord-bot-redis
     image: redis:6.0
     ports:
       - ${REDIS_PORT:-6379}:6379
 
   horizon:
-    container_name: plex-bot-horizon
-    image: phlak/plex-bot-dev:local
+    container_name: discord-bot-horizon
+    image: phlak/discord-bot-dev:local
     depends_on:
       - redis
     environment:
@@ -65,6 +65,14 @@ services:
       - ./:/var/www/html
     user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
     command: php artisan horizon
+
+  npm:
+    container_name: discord-bot-npm
+    image: clearchecks/dev-env:local
+    volumes:
+      - ./:/var/www/html
+    user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
+    command: npm run watch
 
 volumes:
   mysql-data:
