@@ -1,0 +1,34 @@
+includes:
+  - vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+  paths:
+    - app
+    - config
+    - database
+    - routes
+    - tests
+
+  level: 7
+
+  checkFunctionNameCase: true
+  checkMissingIterableValueType: false
+  checkModelProperties: true
+
+  implicitThrows: false
+
+  reportUnmatchedIgnoredErrors: false
+
+  exceptions:
+    check:
+      missingCheckedExceptionInThrows: true
+      tooWideThrowType: true
+
+    # uncheckedExceptionRegexes:
+    #   - '/^GuzzleHttp\\Exception\\GuzzleException$/'
+
+    uncheckedExceptionClasses:
+    #   - 'InvalidArgumentException'
+      - 'PHPUnit\Framework\Exception'
+      - 'Symfony\Component\HttpKernel\Exception\HttpException'
