@@ -22,7 +22,7 @@ class LibraryNew implements ShouldQueue
             return;
         }
 
-        if (! in_array($event->payload->Metadata->librarySectionTitle, config('plex.libraries', []))) {
+        if (! in_array($event->payload->Metadata->librarySectionTitle, config('services.plex.libraries', []))) {
             return;
         }
 
@@ -30,7 +30,7 @@ class LibraryNew implements ShouldQueue
             $this->request->attach('poster', $event->file->content(), $event->file->name());
         }
 
-        $this->request->post(config('plex.webhook_url'), [
+        $this->request->post(config('services.discord.webhook_url'), [
             'content' => sprintf(
                 'New content added to %s: **%s**',
                 $event->payload->Server->title,

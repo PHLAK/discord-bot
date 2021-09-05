@@ -30,4 +30,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'discord' => [
+        'webhook_url' => env('DISCORD_WEBHOOK_URL'),
+    ],
+
+    'plex' => [
+        'libraries' => ['Movies', 'Music', 'Shows'],
+    ],
+
 ];
