@@ -3,15 +3,19 @@
 namespace App\Listeners;
 
 use App\Events\PlexEventReceived;
+use App\File;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Facades\Http;
 
 class LibraryNew implements ShouldQueue
 {
     use InteractsWithQueue;
 
-    /** Handle the event. */
+    public function __construct(private PendingRequest $request)
+    {
+    }
+
     public function handle(PlexEventReceived $event): void
     {
         if ($event->payload->event !== 'library.new') {
@@ -22,7 +26,11 @@ class LibraryNew implements ShouldQueue
             return;
         }
 
-        $response = Http::attach('poster', base64_decode($event->fileContent), $event->fileName)->post(config('plex.webhook_url'), [
+        if ($event->file instanceof File) {
+            $this->request->attach('poster', $event->file->content(), $event->file->name());
+        }
+
+        $this->request->post(config('plex.webhook_url'), [
             'content' => sprintf(
                 'New content added to %s: **%s**',
                 $event->payload->Server->title,

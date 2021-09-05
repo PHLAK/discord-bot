@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\File;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -13,15 +14,16 @@ class PlexEventReceived
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public object $payload;
-    public ?string $fileName;
-    public ?string $fileContent;
+    public ?File $file = null;
 
     /** Create a new event instance. */
     public function __construct(object $payload, UploadedFile $file = null)
     {
         $this->payload = $payload;
-        $this->fileName = $file instanceof UploadedFile ? $file->getClientOriginalName() : null;
-        $this->fileContent = base64_encode($file instanceof UploadedFile ? $file->getContent() : null);
+
+        if ($file instanceof UploadedFile) {
+            $this->file = File::createFromUploadedFile($file);
+        }
     }
 
     /**

@@ -6,7 +6,6 @@ use App\Events\PlexEventReceived;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlexEventRequest;
 use Illuminate\Http\Response;
-use Illuminate\Http\UploadedFile;
 use Symfony\Component\HttpFoundation\Exception\JsonException;
 
 class PlexEventController extends Controller
@@ -19,10 +18,6 @@ class PlexEventController extends Controller
         } catch (JsonException) {
             abort(Response::HTTP_UNPROCESSABLE_ENTITY, 'Invalid JSON');
         }
-
-        // PlexEventReceived::dispatch($payload, base64_encode(
-        //     $request->thumb instanceof UploadedFile ? $request->thumb->getContent() : null
-        // ));
 
         PlexEventReceived::dispatch($payload, $request->thumb);
 
