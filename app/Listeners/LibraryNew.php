@@ -7,6 +7,7 @@ use App\File;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Str;
 
 class LibraryNew implements ShouldQueue
 {
@@ -32,7 +33,8 @@ class LibraryNew implements ShouldQueue
 
         $this->request->post(config('services.discord.webhook_url'), [
             'content' => sprintf(
-                'New content added to %s: **%s**',
+                'New %s added to %s: **%s**',
+                Str::of($event->payload->Metadata->librarySectionTitle)->lower()->singular(),
                 $event->payload->Server->title,
                 $event->payload->Metadata->title
             ),
