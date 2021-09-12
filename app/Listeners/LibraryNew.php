@@ -7,6 +7,7 @@ use App\File;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\Middleware\RateLimited;
 use Illuminate\Support\Str;
 
 class LibraryNew implements ShouldQueue
@@ -39,5 +40,11 @@ class LibraryNew implements ShouldQueue
                 $event->payload->Metadata->title
             ),
         ]);
+    }
+
+    /** Get the middleware the job should pass through. */
+    public function middleware(): array
+    {
+        return [new RateLimited('discord-webhooks')];
     }
 }
