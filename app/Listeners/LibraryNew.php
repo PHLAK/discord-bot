@@ -4,10 +4,12 @@ namespace App\Listeners;
 
 use App\Events\PlexEventReceived;
 use App\File;
+use Carbon\CarbonInterval;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\RateLimited;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class LibraryNew implements ShouldQueue
@@ -28,9 +30,10 @@ class LibraryNew implements ShouldQueue
             return;
         }
 
-        if ($event->file instanceof File) {
-            $this->request->attach('poster', $event->file->content(), $event->file->name());
-        }
+        // TODO: Add a file link to the embed
+        // if ($event->file instanceof File) {
+        //     $this->request->attach('poster', $event->file->content(), $event->file->name());
+        // }
 
         $this->request->post(config('services.discord.webhook_url'), [
             'content' => sprintf(
@@ -51,44 +54,41 @@ class LibraryNew implements ShouldQueue
     /** Get the embeds for the received PLEX event. */
     private function embeds(object $event): array
     {
-        return match ($event->Metadata->librarySectionType) {
+        return match ($event->Metadata->type) {
             'movie' => [
                 [
                     'title' => $event->Metadata->title,
                     'description' => $event->Metadata->tagline,
                     'fields' => [
-                        $this->inlineField('Year', '1986'),
-                        $this->inlineField('Runtime', '1:23:45'),
-                        $this->inlineField('Rating', 'PG-13'),
+                        $this->inlineField('Year', $event->Metadata->year),
+                        $this->inlineField('Rating', $event->Metadata->contentRating),
+                        $this->field('Genre', Collection::make($event->Metadata->Genre)->pluck('tag')->implode(', ')),
+                        $this->field('Runtime', CarbonInterval::milliseconds($event->Metadata->duration)->cascade()->forHumans(short: true)),
                     ],
                 ],
             ],
-            'show' => [
-                'title' => $event->Metadata->title,
+            'episode' => [
+                'title' => $event->Metadata->grandparentTitle ?? $event->Metadata->title,
                 'description' => $event->Metadata->title,
-                'fields' => [
-                    [
-                        $this->inlineField('Season', '04'),
-                        $this->inlineField('Episode', '12'),
-                    ],
-                ],
+                // 'fields' => [
+                //     [
+                //         $this->inlineField('Season', '04'),
+                //         $this->inlineField('Episode', '12'),
+                //     ],
+                // ],
             ],
-            'music' => [
+            'track' => [
                 'title' => $event->Metadata->title,
                 'description' => $event->Metadata->title,
-                'fields' => [
-                    [
-                        $this->inlineField('Year', '1986'),
-                    ],
-                ],
             ],
             default => [
                 'title' => $event->Metadata->title,
+                'description' => $event->Metadata->grandparentTitle,
             ]
         };
     }
 
-    /** Get a field array. */
+    /** Build a field array. */
     private function field(string $name, string $value, bool $inline = false): array
     {
         return [
@@ -98,7 +98,7 @@ class LibraryNew implements ShouldQueue
         ];
     }
 
-    /** get an inline field array. */
+    /** Build an inline field array. */
     private function inlineField(string $name, string $value): array
     {
         return $this->field($name, $value, true);
