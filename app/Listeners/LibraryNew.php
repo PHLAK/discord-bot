@@ -24,10 +24,14 @@ class LibraryNew implements ShouldQueue
     {
         if ($event->payload->event !== 'library.new') {
             $this->delete();
+
+            return;
         }
 
         if (! in_array($event->payload->Metadata->librarySectionTitle, config('services.plex.libraries', []))) {
             $this->delete();
+
+            return;
         }
 
         // TODO: Add a file link to the embed
