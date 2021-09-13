@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('horizon:snapshot')->everyFiveMinutes();
+        $schedule->command('telescope:prune --hours=72')->daily();
     }
 
     /** Register the commands for the application. */
