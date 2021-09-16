@@ -72,22 +72,29 @@ class LibraryNew implements ShouldQueue
                 ],
             ],
             'episode' => [
-                'title' => $event->Metadata->grandparentTitle ?? $event->Metadata->title,
-                'description' => $event->Metadata->title,
-                // 'fields' => [
-                //     [
-                //         $this->inlineField('Season', '04'),
-                //         $this->inlineField('Episode', '12'),
-                //     ],
-                // ],
+                [
+                    'title' => $event->Metadata->grandparentTitle ?? $event->Metadata->title,
+                    'description' => $event->Metadata->title,
+                    // 'fields' => [
+                    //     [
+                    //         $this->inlineField('Season', '04'),
+                    //         $this->inlineField('Episode', '12'),
+                    //     ],
+                    // ],
+                ],
             ],
             'track' => [
-                'title' => $event->Metadata->title,
-                'description' => $event->Metadata->title,
+                [
+
+                    'title' => $event->Metadata->title,
+                    'description' => $event->Metadata->title,
+                ],
             ],
             default => [
-                'title' => $event->Metadata->title,
-                'description' => $event->Metadata->grandparentTitle,
+                [
+                    'title' => $event->Metadata->title,
+                    'description' => $event->Metadata->grandparentTitle,
+                ],
             ]
         };
     }
