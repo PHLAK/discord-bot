@@ -93,7 +93,9 @@ class LibraryNew implements ShouldQueue
         };
 
         if ($event->file instanceof File) {
-            $embeds[0]['image'] = Storage::disk('public')->url($event->file->name());
+            $embeds[0]['image'] = [
+                'url' => Storage::disk('public')->url($event->file->name()),
+            ];
         }
 
         return $embeds;
