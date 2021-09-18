@@ -10,6 +10,7 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\RateLimited;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class LibraryNew implements ShouldQueue
@@ -28,10 +29,9 @@ class LibraryNew implements ShouldQueue
 
     public function handle(PlexEventReceived $event): void
     {
-        // TODO: Add a file link to the embed
-        // if ($event->file instanceof File) {
-        //     $this->request->attach('poster', $event->file->content(), $event->file->name());
-        // }
+        if ($event->file instanceof File) {
+            Storage::disk('public')->put($event->file->name(), $event->file->content());
+        }
 
         $this->request->post(config('services.discord.webhook_url'), [
             'content' => sprintf(
@@ -39,7 +39,7 @@ class LibraryNew implements ShouldQueue
                 Str::of($event->payload->Metadata->librarySectionTitle)->lower()->singular(),
                 $event->payload->Server->title,
             ),
-            'embeds' => $this->embeds($event->payload),
+            'embeds' => $this->embeds($event),
         ]);
     }
 
@@ -52,23 +52,23 @@ class LibraryNew implements ShouldQueue
     /** Get the embeds for the received PLEX event. */
     private function embeds(object $event): array
     {
-        return match ($event->Metadata->type) {
+        $embeds = match ($event->payload->Metadata->type) {
             'movie' => [
                 [
-                    'title' => $event->Metadata->title,
-                    'description' => $event->Metadata->tagline,
+                    'title' => $event->payload->Metadata->title,
+                    'description' => $event->payload->Metadata->tagline,
                     'fields' => [
-                        $this->inlineField('Year', $event->Metadata->year),
-                        $this->inlineField('Rating', $event->Metadata->contentRating),
-                        $this->field('Genre', Collection::make($event->Metadata->Genre)->pluck('tag')->implode(', ')),
-                        $this->field('Runtime', CarbonInterval::milliseconds($event->Metadata->duration)->cascade()->forHumans(short: true)),
+                        $this->inlineField('Year', $event->payload->Metadata->year),
+                        $this->inlineField('Rating', $event->payload->Metadata->contentRating),
+                        $this->field('Genre', Collection::make($event->payload->Metadata->Genre)->pluck('tag')->implode(', ')),
+                        $this->field('Runtime', CarbonInterval::milliseconds($event->payload->Metadata->duration)->cascade()->forHumans(short: true)),
                     ],
                 ],
             ],
             'episode' => [
                 [
-                    'title' => $event->Metadata->grandparentTitle ?? $event->Metadata->title,
-                    'description' => $event->Metadata->title,
+                    'title' => $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title,
+                    'description' => $event->payload->Metadata->title,
                     // 'fields' => [
                     //     [
                     //         $this->inlineField('Season', '04'),
@@ -80,17 +80,23 @@ class LibraryNew implements ShouldQueue
             'track' => [
                 [
 
-                    'title' => $event->Metadata->title,
-                    'description' => $event->Metadata->title,
+                    'title' => $event->payload->Metadata->title,
+                    'description' => $event->payload->Metadata->title,
                 ],
             ],
             default => [
                 [
-                    'title' => $event->Metadata->title,
-                    'description' => $event->Metadata->grandparentTitle,
+                    'title' => $event->payload->Metadata->title,
+                    'description' => $event->payload->Metadata->grandparentTitle,
                 ],
             ]
         };
+
+        if ($event->file instanceof File) {
+            $embeds[0]['image'] = Storage::disk('public')->url($event->file->name());
+        }
+
+        return $embeds;
     }
 
     /** Build a field array. */
