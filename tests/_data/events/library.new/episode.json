@@ -1,0 +1,61 @@
+{
+    "event": "library.new",
+    "user": true,
+    "owner": true,
+    "Account": {
+        "id": 1,
+        "thumb": "https://plex.tv/users/15290d0bf81f5c51/avatar?c=1609293832",
+        "title": "PHLAK"
+    },
+    "Server": {
+        "title": "Some Server",
+        "uuid": "ec02dc5873e79a6113ffcd4eb8e3ccc5c87abe3a"
+    },
+    "Metadata": {
+        "librarySectionType": "show",
+        "ratingKey": "100392",
+        "key": "/library/metadata/100392",
+        "parentRatingKey": "100174",
+        "grandparentRatingKey": "6826",
+        "guid": "plex://episode/614104b4ef4adbfc721c5b5f",
+        "parentGuid": "plex://season/60c3227f50d9f3002cd64f4a",
+        "grandparentGuid": "plex://show/5d9c086dba6eb9001fba3bd5",
+        "type": "episode",
+        "title": "Shots",
+        "grandparentKey": "/library/metadata/6826",
+        "parentKey": "/library/metadata/100174",
+        "librarySectionTitle": "Shows",
+        "librarySectionID": 2,
+        "librarySectionKey": "/library/sections/2",
+        "grandparentTitle": "Archer (2009)",
+        "parentTitle": "Season 12",
+        "contentRating": "TV-MA",
+        "summary": "Sex, drugs, and monster trucks! Archer and the gang celebrate another barely successful mission.",
+        "index": 5,
+        "parentIndex": 12,
+        "thumb": "/library/metadata/100392/thumb/1631776775",
+        "art": "/library/metadata/6826/art/1629952432",
+        "parentThumb": "/library/metadata/100174/thumb/1631776774",
+        "grandparentThumb": "/library/metadata/6826/thumb/1629952432",
+        "grandparentArt": "/library/metadata/6826/art/1629952432",
+        "grandparentTheme": "/library/metadata/6826/theme/1629952432",
+        "originallyAvailableAt": "2021-09-15",
+        "addedAt": 1631776771,
+        "updatedAt": 1631776775,
+        "Writer": [
+            {
+                "id": 40163,
+                "filter": "writer=40163",
+                "tag": "Matt Roller"
+            }
+        ],
+        "Guid": [
+            {
+                "id": "tmdb://3136999"
+            },
+            {
+                "id": "tvdb://8600533"
+            }
+        ]
+    }
+}

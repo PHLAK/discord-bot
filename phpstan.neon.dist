@@ -32,3 +32,7 @@ parameters:
     #   - 'InvalidArgumentException'
       - 'PHPUnit\Framework\Exception'
       - 'Symfony\Component\HttpKernel\Exception\HttpException'
+
+    ignoreErrors:
+      - message: "#^Method .+ throws checked exception .+ but it's missing from the PHPDoc @throws tag.$#"
+        path: tests/*

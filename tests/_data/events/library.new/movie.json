@@ -1,0 +1,377 @@
+{
+    "event": "library.new",
+    "user": true,
+    "owner": true,
+    "Account": {
+        "id": 1,
+        "thumb": "https://plex.tv/users/15290d0bf81f5c51/avatar?c=1609293832",
+        "title": "PHLAK"
+    },
+    "Server": {
+        "title": "Some Server",
+        "uuid": "ec02dc5873e79a6113ffcd4eb8e3ccc5c87abe3a"
+    },
+    "Metadata": {
+        "librarySectionType": "movie",
+        "ratingKey": "100398",
+        "key": "/library/metadata/100398",
+        "guid": "plex://movie/5d776827880197001ec90904",
+        "studio": "Village Roadshow Pictures",
+        "type": "movie",
+        "title": "The Matrix",
+        "librarySectionTitle": "Movies",
+        "librarySectionID": 1,
+        "librarySectionKey": "/library/sections/1",
+        "contentRating": "R",
+        "summary": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+        "rating": 8.8,
+        "audienceRating": 8.5,
+        "userRating": 10.0,
+        "viewCount": 3,
+        "lastViewedAt": 1630887387,
+        "year": 1999,
+        "tagline": "Welcome to the Real World.",
+        "thumb": "/library/metadata/100398/thumb/1631897858",
+        "art": "/library/metadata/100398/art/1631897858",
+        "duration": 8160000,
+        "originallyAvailableAt": "1999-03-31",
+        "addedAt": 1631897856,
+        "updatedAt": 1631897858,
+        "audienceRatingImage": "rottentomatoes://image.rating.upright",
+        "primaryExtraKey": "/library/metadata/100399",
+        "ratingImage": "rottentomatoes://image.rating.ripe",
+        "Genre": [
+            { "id": 541, "filter": "genre=541", "tag": "Action", "count": 11 },
+            {
+                "id": 18124,
+                "filter": "genre=18124",
+                "tag": "Science Fiction",
+                "count": 503
+            }
+        ],
+        "Director": [
+            {
+                "id": 8514,
+                "filter": "director=8514",
+                "tag": "Lilly Wachowski",
+                "count": 5
+            },
+            {
+                "id": 8515,
+                "filter": "director=8515",
+                "tag": "Lana Wachowski",
+                "count": 5
+            }
+        ],
+        "Writer": [
+            {
+                "id": 8519,
+                "filter": "writer=8519",
+                "tag": "Lilly Wachowski",
+                "count": 6
+            },
+            {
+                "id": 8517,
+                "filter": "writer=8517",
+                "tag": "Lana Wachowski",
+                "count": 6
+            }
+        ],
+        "Producer": [
+            {
+                "id": 1086,
+                "filter": "producer=1086",
+                "tag": "Joel Silver",
+                "count": 22
+            }
+        ],
+        "Country": [
+            {
+                "id": 42235,
+                "filter": "country=42235",
+                "tag": "Australia",
+                "count": 56
+            },
+            {
+                "id": 84674,
+                "filter": "country=84674",
+                "tag": "United States of America",
+                "count": 1569
+            }
+        ],
+        "Guid": [
+            { "id": "imdb://tt0133093" },
+            { "id": "tmdb://603" },
+            { "id": "tvdb://169" }
+        ],
+        "Collection": [
+            {
+                "id": 30227,
+                "filter": "collection=30227",
+                "tag": "The Matrix",
+                "count": 4
+            }
+        ],
+        "Role": [
+            {
+                "id": 996,
+                "filter": "actor=996",
+                "tag": "Keanu Reeves",
+                "count": 24,
+                "role": "Thomas A. Anderson / Neo",
+                "thumb": "https://metadata-static.plex.tv/1/people/18d461335719b74904130216e9a55c2a.jpg"
+            },
+            {
+                "id": 5197,
+                "filter": "actor=5197",
+                "tag": "Laurence Fishburne",
+                "count": 15,
+                "role": "Morpheus",
+                "thumb": "https://metadata-static.plex.tv/7/people/7fba552eb2ffec66521bc7f275f7ed8d.jpg"
+            },
+            {
+                "id": 12470,
+                "filter": "actor=12470",
+                "tag": "Carrie-Anne Moss",
+                "count": 8,
+                "role": "Trinity",
+                "thumb": "https://metadata-static.plex.tv/9/people/9cc812f1f47d12d553d762add33cdf75.jpg"
+            },
+            {
+                "id": 7266,
+                "filter": "actor=7266",
+                "tag": "Hugo Weaving",
+                "count": 17,
+                "role": "Agent Smith",
+                "thumb": "https://metadata-static.plex.tv/e/people/e2f833ffab3d898dbe9b7ced2c48e166.jpg"
+            },
+            {
+                "id": 4627,
+                "filter": "actor=4627",
+                "tag": "Joe Pantoliano",
+                "count": 8,
+                "role": "Cypher",
+                "thumb": "https://metadata-static.plex.tv/3/people/3e92aba2d26960679998e7dd0d00829a.jpg"
+            },
+            {
+                "id": 33766,
+                "filter": "actor=33766",
+                "tag": "Gloria Foster",
+                "count": 2,
+                "role": "Oracle",
+                "thumb": "https://metadata-static.plex.tv/people/5d776827880197001ec90a0a.jpg"
+            },
+            {
+                "id": 33865,
+                "filter": "actor=33865",
+                "tag": "Marcus Chong",
+                "role": "Tank",
+                "thumb": "https://metadata-static.plex.tv/2/people/20b3462b1fe3cb859aa1288d6d49952c.jpg"
+            },
+            {
+                "id": 33866,
+                "filter": "actor=33866",
+                "tag": "Paul Goddard",
+                "count": 2,
+                "role": "Agent Brown",
+                "thumb": "https://metadata-static.plex.tv/2/people/2cdf56585fbc229627c45cd00405badd.jpg"
+            },
+            {
+                "id": 12777,
+                "filter": "actor=12777",
+                "tag": "Robert Taylor",
+                "count": 5,
+                "role": "Agent Jones",
+                "thumb": "https://metadata-static.plex.tv/5/people/5508a281b6eaaf6cf5b41bcaa26a6b91.jpg"
+            },
+            {
+                "id": 33867,
+                "filter": "actor=33867",
+                "tag": "Julian Arahanga",
+                "role": "Apoc",
+                "thumb": "https://metadata-static.plex.tv/people/5d776826999c64001ec2c5f5.jpg"
+            },
+            {
+                "id": 33868,
+                "filter": "actor=33868",
+                "tag": "Belinda McClory",
+                "role": "Switch",
+                "thumb": "https://metadata-static.plex.tv/3/people/31a4ff5b093409dc8fa0ee46fd1bef30.jpg"
+            },
+            {
+                "id": 33869,
+                "filter": "actor=33869",
+                "tag": "Anthony Ray Parker",
+                "role": "Dozer",
+                "thumb": "https://metadata-static.plex.tv/people/5d776827880197001ec90a0f.jpg"
+            },
+            {
+                "id": 28573,
+                "filter": "actor=28573",
+                "tag": "Matt Doran",
+                "count": 2,
+                "role": "Mouse",
+                "thumb": "https://metadata-static.plex.tv/people/5d776827880197001ec90a10.jpg"
+            },
+            {
+                "id": 33871,
+                "filter": "actor=33871",
+                "tag": "Ada Nicodemou",
+                "role": "DuJour",
+                "thumb": "https://metadata-static.plex.tv/c/people/c1a561795047b81215611101814aaa75.jpg"
+            },
+            {
+                "id": 33397,
+                "filter": "actor=33397",
+                "tag": "David Aston",
+                "count": 2,
+                "role": "Rhineheart",
+                "thumb": "https://metadata-static.plex.tv/5/people/567b6758c511c8c477b674c9e6230d49.jpg"
+            },
+            {
+                "id": 84528,
+                "filter": "actor=84528",
+                "tag": "Marc Aden Gray",
+                "role": "Choi"
+            },
+            {
+                "id": 33872,
+                "filter": "actor=33872",
+                "tag": "Deni Gordon",
+                "role": "Priestess"
+            },
+            {
+                "id": 33873,
+                "filter": "actor=33873",
+                "tag": "Rowan Witt",
+                "role": "Spoon Boy",
+                "thumb": "https://metadata-static.plex.tv/5/people/5ae18c4430170bae91bfd3119c150df9.jpg"
+            },
+            {
+                "id": 33874,
+                "filter": "actor=33874",
+                "tag": "Eleanor Witt",
+                "role": "Potential"
+            },
+            {
+                "id": 65654,
+                "filter": "actor=65654",
+                "tag": "Janaya Pender",
+                "role": "Potential",
+                "thumb": "https://metadata-static.plex.tv/people/5d776827880197001ec90a17.jpg"
+            },
+            {
+                "id": 65652,
+                "filter": "actor=65652",
+                "tag": "Adryn White",
+                "role": "Potential"
+            },
+            {
+                "id": 65655,
+                "filter": "actor=65655",
+                "tag": "Natalie Tjen",
+                "role": "Potential"
+            },
+            {
+                "id": 14462,
+                "filter": "actor=14462",
+                "tag": "Bill Young",
+                "count": 3,
+                "role": "Lieutenant"
+            },
+            {
+                "id": 33875,
+                "filter": "actor=33875",
+                "tag": "David O'Connor",
+                "role": "FedEx Man"
+            },
+            {
+                "id": 33876,
+                "filter": "actor=33876",
+                "tag": "Jeremy Ball",
+                "role": "Businessman"
+            },
+            {
+                "id": 33877,
+                "filter": "actor=33877",
+                "tag": "Fiona Johnson",
+                "count": 2,
+                "role": "Woman in Red",
+                "thumb": "https://metadata-static.plex.tv/people/5d776827880197001ec90a1d.jpg"
+            },
+            {
+                "id": 33878,
+                "filter": "actor=33878",
+                "tag": "Harry Lawrence",
+                "role": "Old Man",
+                "thumb": "https://metadata-static.plex.tv/people/5d776827880197001ec90a1e.jpg"
+            },
+            {
+                "id": 33879,
+                "filter": "actor=33879",
+                "tag": "Steve Dodd",
+                "role": "Blind Man",
+                "thumb": "https://metadata-static.plex.tv/c/people/ce7b6533f017bc44c8370431f7fd435b.jpg"
+            },
+            {
+                "id": 33880,
+                "filter": "actor=33880",
+                "tag": "Luke Quinton",
+                "role": "Security Guard"
+            },
+            {
+                "id": 33881,
+                "filter": "actor=33881",
+                "tag": "Lawrence Woodward",
+                "role": "Guard"
+            },
+            {
+                "id": 33882,
+                "filter": "actor=33882",
+                "tag": "Michael Butcher",
+                "role": "Cop Who Captures Neo"
+            },
+            {
+                "id": 33883,
+                "filter": "actor=33883",
+                "tag": "Bernard Ledger",
+                "role": "Big Cop"
+            },
+            {
+                "id": 65653,
+                "filter": "actor=65653",
+                "tag": "Chris Pattinson",
+                "role": "Cop"
+            },
+            {
+                "id": 33884,
+                "filter": "actor=33884",
+                "tag": "Robert Simper",
+                "count": 2,
+                "role": "Cop"
+            },
+            {
+                "id": 33885,
+                "filter": "actor=33885",
+                "tag": "Nigel Harbach",
+                "count": 2,
+                "role": "Parking Cop"
+            },
+            {
+                "id": 84529,
+                "filter": "actor=84529",
+                "tag": "Rana Morrison",
+                "count": 4,
+                "role": "Shaylea",
+                "thumb": "https://metadata-static.plex.tv/people/5d776825eb5d26001f1dd18f.jpg"
+            },
+            {
+                "id": 65656,
+                "filter": "actor=65656",
+                "tag": "Tamara Brown",
+                "role": "Potential",
+                "thumb": "https://metadata-static.plex.tv/f/people/f3be7559f533d87a112652186b12711c.jpg"
+            }
+        ]
+    }
+}
