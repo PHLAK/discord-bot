@@ -4,9 +4,9 @@ namespace Tests\Feature\Listeners;
 
 use App\Events\PlexEventReceived;
 use App\Listeners\LibraryNew;
-use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\App;
-use Mockery\MockInterface;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 /** @covers \App\Listeners\LibraryNew */
@@ -54,21 +54,22 @@ class LibraryNewTest extends TestCase
     /** @test */
     public function it_sends_a_webhook_request_for_an_episode(): void
     {
-        $this->mock(PendingRequest::class, function (MockInterface $mock): void {
-            $mock->shouldReceive('post')->with('https://discord.test/api/webhooks/12345/abcdefg', [
-                'content' => 'New show added to Some Server',
-                'embeds' => [
-                    [
-                        'title' => 'Archer (2009)',
-                        'description' => 'Shots',
-                    ],
-                ],
-            ])->once();
-        });
+        Http::fake();
 
         $payload = json_decode(file_get_contents(base_path('tests/_data/events/library.new/episode.json')));
 
         App::make(LibraryNew::class)->handle(new PlexEventReceived($payload, null));
+
+        Http::assertSent(function (Request $request) {
+            return $request->url() === 'https://discord.test/api/webhooks/12345/abcdefg'
+                && $request['content'] === 'New show added to Some Server'
+                && $request['embeds'] === [
+                    [
+                        'title' => 'Archer (2009)',
+                        'description' => 'Shots',
+                    ],
+                ];
+        });
     }
 
     public function expectedPaylodDataProvider(): array

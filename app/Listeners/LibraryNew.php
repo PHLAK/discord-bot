@@ -6,20 +6,16 @@ use App\Events\PlexEventReceived;
 use App\File;
 use Carbon\CarbonInterval;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\RateLimited;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class LibraryNew implements ShouldQueue
 {
     use InteractsWithQueue;
-
-    public function __construct(private PendingRequest $request)
-    {
-    }
 
     public function shouldQueue(PlexEventReceived $event): bool
     {
@@ -33,7 +29,7 @@ class LibraryNew implements ShouldQueue
             Storage::disk('public')->put($event->file->name(), $event->file->content());
         }
 
-        $this->request->post(config('services.discord.webhook_url'), [
+        Http::post(config('services.discord.webhook_url'), [
             'content' => sprintf(
                 'New %s added to %s',
                 Str::of($event->payload->Metadata->librarySectionTitle)->lower()->singular(),
