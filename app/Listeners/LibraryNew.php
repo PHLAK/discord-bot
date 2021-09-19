@@ -26,7 +26,9 @@ class LibraryNew implements ShouldQueue
     public function handle(PlexEventReceived $event): void
     {
         if ($event->file instanceof File) {
-            Storage::disk('public')->put($event->file->name(), $event->file->content());
+            $fileName = sprintf('posters/%s.%s', sha1($event->payload->Metadata->guid), $event->file->extension());
+
+            Storage::disk('public')->put($fileName, $event->file->content());
         }
 
         Http::post(config('services.discord.webhook_url'), [
@@ -88,9 +90,9 @@ class LibraryNew implements ShouldQueue
             ]
         };
 
-        if ($event->file instanceof File) {
+        if (isset($fileName)) {
             $embeds[0]['image'] = [
-                'url' => Storage::disk('public')->url($event->file->name()),
+                'url' => Storage::disk('public')->url($fileName),
             ];
         }
 

@@ -17,6 +17,7 @@ class FileTest extends TestCase
         );
 
         $this->assertEquals('test-file.txt', $file->name());
+        $this->assertEquals('txt', $file->extension());
         $this->assertEquals('Test file; please ignore', $file->content());
     }
 
@@ -30,6 +31,7 @@ class FileTest extends TestCase
         $unserializedFile = unserialize(serialize($file));
 
         $this->assertEquals('test-file.txt', $unserializedFile->name());
+        $this->assertEquals('txt', $unserializedFile->extension());
         $this->assertEquals('Test file; please ignore', $unserializedFile->content());
     }
 }
