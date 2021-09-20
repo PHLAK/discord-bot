@@ -26,7 +26,8 @@ class LibraryNew implements ShouldQueue
     public function handle(PlexEventReceived $event): void
     {
         if ($event->file instanceof File) {
-            $fileName = sprintf('posters/%s.%s', sha1($event->payload->Metadata->guid), $event->file->extension());
+            $title = $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title;
+            $fileName = sprintf('posters/%s.%s', sha1($title), $event->file->extension());
 
             Storage::disk('public')->put($fileName, $event->file->content());
         }
