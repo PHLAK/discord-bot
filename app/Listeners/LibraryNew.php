@@ -38,7 +38,7 @@ class LibraryNew implements ShouldQueue
                 Str::of($event->payload->Metadata->librarySectionTitle)->lower()->singular(),
                 $event->payload->Server->title,
             ),
-            'embeds' => $this->embeds($event),
+            'embeds' => $this->embeds($event, $fileName),
         ]);
     }
 
@@ -49,7 +49,7 @@ class LibraryNew implements ShouldQueue
     }
 
     /** Get the embeds for the received PLEX event. */
-    private function embeds(object $event): array
+    private function embeds(object $event, string $fileName = null): array
     {
         $embeds = match ($event->payload->Metadata->type) {
             'movie' => [
