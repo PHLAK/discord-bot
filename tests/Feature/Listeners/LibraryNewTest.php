@@ -62,7 +62,7 @@ class LibraryNewTest extends TestCase
 
         Http::assertSent(function (Request $request) {
             return $request->url() === 'https://discord.test/api/webhooks/12345/abcdefg'
-                && $request['content'] === 'New show added to Some Server'
+                && $request['content'] === 'New episode added to Some Server'
                 && $request['embeds'] === [
                     [
                         'title' => 'Archer (2009)',

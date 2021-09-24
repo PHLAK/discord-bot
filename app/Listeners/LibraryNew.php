@@ -11,7 +11,6 @@ use Illuminate\Queue\Middleware\RateLimited;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class LibraryNew implements ShouldQueue
 {
@@ -33,12 +32,8 @@ class LibraryNew implements ShouldQueue
         }
 
         Http::post(config('services.discord.webhook_url'), [
-            'content' => sprintf(
-                'New %s added to %s',
-                Str::of($event->payload->Metadata->librarySectionTitle)->lower()->singular(),
-                $event->payload->Server->title,
-            ),
-            'embeds' => $this->embeds($event, $fileName),
+            'content' => sprintf('New %s added to %s', $event->payload->Metadata->type, $event->payload->Server->title),
+            'embeds' => $this->embeds($event, $fileName ?? null),
         ]);
     }
 
