@@ -5,6 +5,7 @@ namespace Tests\Feature\Listeners;
 use App\Events\PlexEventReceived;
 use App\Listeners\LibraryNew;
 use Illuminate\Http\Client\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
@@ -67,6 +68,37 @@ class LibraryNewTest extends TestCase
                     [
                         'title' => 'Archer (2009)',
                         'description' => 'Shots',
+                    ],
+                ];
+        });
+    }
+
+    /** @test */
+    public function it_sends_a_webhook_request_for_a_movie_with_an_image(): void
+    {
+        Http::fake();
+
+        $payload = json_decode((string) file_get_contents(base_path('tests/_data/events/library.new/movie.json')));
+        $file = UploadedFile::fake()->image('test.png');
+
+        App::make(LibraryNew::class)->handle(new PlexEventReceived($payload, $file));
+
+        Http::assertSent(function (Request $request) {
+            return $request->url() === 'https://discord.test/api/webhooks/12345/abcdefg'
+                && $request['content'] === 'New movie added to Some Server'
+                && $request['embeds'] === [
+                    [
+                        'title' => 'The Matrix',
+                        'description' => 'Welcome to the Real World.',
+                        'fields' => [
+                            ['name' => 'Year', 'value' => '1999', 'inline' => true],
+                            ['name' => 'Rating', 'value' => 'R', 'inline' => true],
+                            ['name' => 'Genre', 'value' => 'Action, Science Fiction', 'inline' => false],
+                            ['name' => 'Runtime', 'value' => '2h 16m', 'inline' => false],
+                        ],
+                        'image' => [
+                            'url' => url('storage/posters/802a278701a98768802a20e76602f713ca05b68e.png'),
+                        ],
                     ],
                 ];
         });

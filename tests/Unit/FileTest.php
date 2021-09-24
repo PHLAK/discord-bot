@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class FileTest extends TestCase
 {
     /** @test */
-    public function it_can_be_instantiate_from_an_uploaded_file()
+    public function it_can_be_instantiate_from_an_uploaded_file(): void
     {
         $file = File::createFromUploadedFile(
             new UploadedFile(__DIR__ . '/../_data/test-file.txt', 'test-file.txt')

@@ -7,7 +7,7 @@ use Illuminate\Http\UploadedFile;
 class File
 {
     /** Create a new File. */
-    private function __construct(
+    public function __construct(
         private string $name,
         private string $extension,
         private string $content
