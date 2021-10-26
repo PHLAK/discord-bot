@@ -19,7 +19,9 @@ class PlexEventControllerTest extends TestCase
     /** A basic feature test example. */
     public function test_it_dispatches_an_event_when_a_plex_event_is_receieved(): void
     {
-        $response = $this->postJson(route('webhooks.plex-event'), [
+        $response = $this->postJson(route('webhooks.plex-event', [
+            'key' => config('webhooks.key'),
+        ]), [
             'payload' => json_encode(['event' => 'library.new']),
         ]);
 
@@ -33,7 +35,9 @@ class PlexEventControllerTest extends TestCase
     /** @test */
     public function it_returns_an_error_when_receiving_a_malformed_payload(): void
     {
-        $response = $this->postJson(route('webhooks.plex-event'), ['payload' => 'INVALID_JSON']);
+        $response = $this->postJson(route('webhooks.plex-event', [
+            'key' => config('webhooks.key'),
+        ]), ['payload' => 'INVALID_JSON']);
 
         $response->assertUnprocessable();
 
