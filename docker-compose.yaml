@@ -6,7 +6,7 @@ services:
     build: .
     image: phlak/discord-bot:dev
     depends_on: [mysql, redis]
-    environment:
+    environment: &app-environment
       APP_ENV: 'local'
       LOG_CHANNEL: 'stderr'
       DB_HOST: ${DB_HOST:-mysql}
@@ -71,6 +71,21 @@ services:
       - ./:/var/www/html
     user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
     command: npm run watch
+
+  artisan:
+    container_name: discord-bot-artisan
+    image: phlak/discord-bot:dev
+    entrypoint: php artisan
+    depends_on:
+      - mysql
+      - redis
+    profiles: [artisan]
+    environment:
+      <<: *app-environment
+    volumes:
+      - ./:/var/www/html
+      - ./.docker/php/config/php.ini:/usr/local/etc/php/php.ini
+    user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
 
 volumes:
   mysql-data:
