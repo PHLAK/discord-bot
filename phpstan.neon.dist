@@ -16,11 +16,11 @@ parameters:
   checkMissingIterableValueType: false
   checkModelProperties: true
 
-  implicitThrows: false
-
   reportUnmatchedIgnoredErrors: false
 
   exceptions:
+    implicitThrows: false
+
     check:
       missingCheckedExceptionInThrows: true
       tooWideThrowType: true
