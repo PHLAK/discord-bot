@@ -81,7 +81,7 @@ class LibraryNew implements ShouldQueue
             default => [
                 [
                     'title' => $event->payload->Metadata->title,
-                    'description' => $event->payload->Metadata->grandparentTitle,
+                    'description' => $event->payload->Metadata->grandparentTitle ?? null,
                 ],
             ]
         };
