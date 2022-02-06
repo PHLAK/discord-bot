@@ -21,6 +21,11 @@ parameters:
 			path: app/Actions/Fortify/UpdateUserProfileInformation.php
 
 		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:updateVerifiedUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
 			message: "#^PHPDoc type array of property App\\\\Exceptions\\\\Handler\\:\\:\\$dontFlash is not covariant with PHPDoc type array\\<string\\> of overridden property Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\\:\\:\\$dontFlash\\.$#"
 			count: 1
 			path: app/Exceptions/Handler.php
@@ -76,9 +81,24 @@ parameters:
 			path: app/Providers/BroadcastServiceProvider.php
 
 		-
+			message: "#^Method App\\\\Providers\\\\FortifyServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Providers/FortifyServiceProvider.php
+
+		-
 			message: "#^Method App\\\\Providers\\\\HorizonServiceProvider\\:\\:gate\\(\\) throws checked exception InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Providers/HorizonServiceProvider.php
+
+		-
+			message: "#^Method App\\\\Providers\\\\JetstreamServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Providers/JetstreamServiceProvider.php
+
+		-
+			message: "#^Method App\\\\Providers\\\\JetstreamServiceProvider\\:\\:configurePermissions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Providers/JetstreamServiceProvider.php
 
 		-
 			message: "#^Method App\\\\Providers\\\\TelescopeServiceProvider\\:\\:gate\\(\\) throws checked exception InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
@@ -87,6 +107,11 @@ parameters:
 
 		-
 			message: "#^Call to static method factory\\(\\) on an unknown class App\\\\Models\\\\Team\\.$#"
+			count: 1
+			path: database/factories/UserFactory.php
+
+		-
+			message: "#^Method Database\\\\Factories\\\\UserFactory\\:\\:definition\\(\\) throws checked exception OverflowException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: database/factories/UserFactory.php
 
@@ -101,6 +126,16 @@ parameters:
 			path: database/factories/UserFactory.php
 
 		-
+			message: "#^Method CreateUsersTable\\:\\:down\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_000000_create_users_table.php
+
+		-
+			message: "#^Method CreateUsersTable\\:\\:up\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_000000_create_users_table.php
+
+		-
 			message: "#^Method CreatePasswordResetsTable\\:\\:down\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
@@ -111,6 +146,16 @@ parameters:
 			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
 
 		-
+			message: "#^Method AddTwoFactorColumnsToUsersTable\\:\\:down\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
+
+		-
+			message: "#^Method AddTwoFactorColumnsToUsersTable\\:\\:up\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
+
+		-
 			message: "#^Method CreateFailedJobsTable\\:\\:down\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
@@ -119,6 +164,26 @@ parameters:
 			message: "#^Method CreateFailedJobsTable\\:\\:up\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+
+		-
+			message: "#^Method CreatePersonalAccessTokensTable\\:\\:down\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
+
+		-
+			message: "#^Method CreatePersonalAccessTokensTable\\:\\:up\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
+
+		-
+			message: "#^Method CreateSessionsTable\\:\\:down\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2021_09_05_232531_create_sessions_table.php
+
+		-
+			message: "#^Method CreateSessionsTable\\:\\:up\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: database/migrations/2021_09_05_232531_create_sessions_table.php
 
 		-
 			message: "#^Method Database\\\\Seeders\\\\DatabaseSeeder\\:\\:run\\(\\) has no return type specified\\.$#"
