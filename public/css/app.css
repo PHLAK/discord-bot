@@ -1164,9 +1164,6 @@ select {
 .mt-1 {
 	margin-top: 0.25rem;
 }
-.ml-2 {
-	margin-left: 0.5rem;
-}
 .mb-6 {
 	margin-bottom: 1.5rem;
 }
@@ -1184,6 +1181,9 @@ select {
 }
 .ml-1 {
 	margin-left: 0.25rem;
+}
+.ml-2 {
+	margin-left: 0.5rem;
 }
 .-mr-0\.5 {
 	margin-right: -0.125rem;
@@ -1373,6 +1373,9 @@ select {
 }
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-row {
+	flex-direction: row;
 }
 .flex-col {
 	flex-direction: column;
