@@ -1,0 +1,95 @@
+name: Discord Bot Test Suite
+on: [push, workflow_dispatch]
+
+env:
+  APP_DEBUG: true
+  APP_KEY: base64:thr0cf8rl0x8VY7D9UqOM97AL2237TjtpKbjO1I0eok=
+  DB_CONNECTION: mysql
+  DB_DATABASE: testing
+  DB_USERNAME: root
+  WEBHOOK_KEY: test-key-please-ignore
+
+permissions: read-all
+
+jobs:
+  coding-standards:
+    name: PHP Coding Standards
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: curl, dom, intl, json, mbstring, openssl, simplexml
+          coverage: xdebug
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install PHP Dependencies
+        run: composer install --no-interaction --no-progress --no-scripts --prefer-dist
+
+      - name: Verify Coding Standards
+        run: vendor/bin/php-cs-fixer fix --diff --dry-run
+
+  static-analysis:
+    name: Static Analysis
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: curl, dom, intl, json, mbstring, openssl, simplexml
+          coverage: xdebug
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install PHP Dependencies
+        run: composer install --no-interaction --no-progress --no-scripts --prefer-dist
+
+      - name: Run Static Analysis
+        run: vendor/bin/phpstan analyze --no-progress
+
+  tests:
+    name: Tests
+    runs-on: 'ubuntu-latest'
+
+    env:
+      APP_ENV: testing
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+            MYSQL_ALLOW_EMPTY_PASSWORD: yes
+            MYSQL_DATABASE: ${{ env.DB_DATABASE }}
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: curl, dom, intl, json, mbstring, openssl, simplexml
+          coverage: xdebug
+
+      - name: Install PHP Dependencies
+        run: composer install --no-interaction --no-progress --no-scripts --prefer-dist
+
+      - name: Install JavaScript Dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Compile Assets
+        run: npm run production --verbose --no-audit --no-fund
+
+      - name: Run Tests
+        run: php artisan test --without-tty
