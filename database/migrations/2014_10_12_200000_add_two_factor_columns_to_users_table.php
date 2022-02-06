@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class AddTwoFactorColumnsToUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    /** Run the migrations. */
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
@@ -22,9 +20,7 @@ class AddTwoFactorColumnsToUsersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    /** Reverse the migrations. */
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
