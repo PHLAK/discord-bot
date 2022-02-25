@@ -50,7 +50,7 @@ class LibraryNew implements ShouldQueue
             'movie' => [
                 [
                     'title' => $event->payload->Metadata->title,
-                    'description' => $event->payload->Metadata->tagline,
+                    'description' => $event->payload->Metadata->tagline ?? '',
                     'fields' => [
                         $this->inlineField('Year', $event->payload->Metadata->year),
                         $this->inlineField('Rating', $event->payload->Metadata->contentRating ?? 'Not Rated'),

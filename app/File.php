@@ -28,7 +28,7 @@ class File
     public function __unserialize(array $data): void
     {
         $this->name = $data['name'];
-        $this->extension = $data['extension'];
+        $this->extension = $data['extension'] ?? '';
         $this->content = base64_decode($data['content']);
     }
 
