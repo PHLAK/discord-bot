@@ -4,6 +4,8 @@ namespace App\Listeners;
 
 use App\Events\PlexEventReceived;
 use App\File;
+use App\Listeners\Traits\ReportOnFailure;
+use App\Listeners\Traits\RetryWithBackoff;
 use Carbon\CarbonInterval;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Storage;
 
 class LibraryNew implements ShouldQueue
 {
-    use InteractsWithQueue;
+    use InteractsWithQueue, ReportOnFailure, RetryWithBackoff;
 
     public function shouldQueue(PlexEventReceived $event): bool
     {
