@@ -53,7 +53,7 @@ class LibraryNew implements ShouldQueue
                     'description' => $event->payload->Metadata->tagline,
                     'fields' => [
                         $this->inlineField('Year', $event->payload->Metadata->year),
-                        $this->inlineField('Rating', $event->payload->Metadata->contentRating),
+                        $this->inlineField('Rating', $event->payload->Metadata->contentRating ?? 'Not Rated'),
                         $this->field('Genre', Collection::make($event->payload->Metadata->Genre)->pluck('tag')->implode(', ')),
                         $this->field('Runtime', CarbonInterval::milliseconds($event->payload->Metadata->duration)->cascade()->forHumans(short: true)),
                     ],
