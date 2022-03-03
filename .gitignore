@@ -1,4 +1,6 @@
 /node_modules/
+/public/css/
+/public/js/
 /public/storage/
 /storage/*.key
 /vendor/
@@ -6,3 +8,4 @@
 /.env.*
 /.php-cs-fixer.cache
 /.phpunit.result.cache
+/public/mix-manifest.json
