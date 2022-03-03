@@ -18,17 +18,17 @@
         </include>
     </coverage>
     <php>
-        <server name="APP_ENV" value="testing"/>
-        <server name="APP_URL" value="http://localhost"/>
-        <server name="BCRYPT_ROUNDS" value="4"/>
-        <server name="CACHE_DRIVER" value="array"/>
-        <server name="DISCORD_WEBHOOK_URL" value="https://discord.test/api/webhooks/12345/abcdefg"/>
-        <server name="DB_CONNECTION" value="mysql"/>
-        <server name="DB_DATABASE" value="testing"/>
-        <server name="MAIL_MAILER" value="array"/>
-        <server name="QUEUE_CONNECTION" value="sync"/>
-        <server name="SESSION_DRIVER" value="array"/>
-        <server name="TELESCOPE_ENABLED" value="false"/>
-        <server name="WEBHOOK_KEY" value="test-key-please-ignore"/>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_URL" value="http://localhost"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="DISCORD_WEBHOOK_URL" value="https://discord.test/api/webhooks/12345/abcdefg"/>
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_DATABASE" value="testing"/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="WEBHOOK_KEY" value="test-key-please-ignore"/>
     </php>
 </phpunit>
