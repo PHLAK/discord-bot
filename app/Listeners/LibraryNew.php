@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Enums\PlexEvent;
 use App\Events\PlexEventReceived;
 use App\File;
 use App\Listeners\Traits\ReportOnFailure;
@@ -25,7 +26,7 @@ class LibraryNew implements ShouldQueue
 
     public function shouldQueue(PlexEventReceived $event): bool
     {
-        return $event->payload->event === 'library.new'
+        return PlexEvent::tryFrom($event->payload->event) === PlexEvent::LIBRARY_NEW
             && in_array($event->payload->Metadata->librarySectionTitle, config('services.plex.libraries', []));
     }
 
