@@ -7,16 +7,21 @@ use App\File;
 use App\Listeners\Traits\ReportOnFailure;
 use App\Listeners\Traits\RetryWithBackoff;
 use Carbon\CarbonInterval;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\RateLimited;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
 
 class LibraryNew implements ShouldQueue
 {
     use InteractsWithQueue, ReportOnFailure, RetryWithBackoff;
+
+    public function __construct(
+        public Filesystem $storage
+    ) {
+    }
 
     public function shouldQueue(PlexEventReceived $event): bool
     {
@@ -30,7 +35,7 @@ class LibraryNew implements ShouldQueue
             $title = $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title;
             $fileName = sprintf('posters/%s.%s', sha1($title), $event->file->extension());
 
-            Storage::disk('public')->put($fileName, $event->file->content());
+            $this->storage->put($fileName, $event->file->content());
         }
 
         Http::post(config('services.discord.webhook_url'), [
@@ -89,9 +94,7 @@ class LibraryNew implements ShouldQueue
         };
 
         if (isset($fileName)) {
-            $embeds[0]['image'] = [
-                'url' => Storage::disk('public')->url($fileName),
-            ];
+            $embeds[0]['image'] = ['url' => url($this->storage->url($fileName))];
         }
 
         return $embeds;
