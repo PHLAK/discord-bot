@@ -71,6 +71,16 @@ parameters:
 			path: app/Listeners/LibraryNew.php
 
 		-
+			message: "#^Unable to resolve the template type TMakeKey in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			count: 1
+			path: app/Listeners/LibraryNew.php
+
+		-
+			message: "#^Unable to resolve the template type TMakeValue in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			count: 1
+			path: app/Listeners/LibraryNew.php
+
+		-
 			message: "#^Method App\\\\Providers\\\\AuthServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: app/Providers/AuthServiceProvider.php
@@ -121,83 +131,23 @@ parameters:
 			path: database/factories/UserFactory.php
 
 		-
-			message: "#^PHPDoc type string of property Database\\\\Factories\\\\UserFactory\\:\\:\\$model is not covariant with PHPDoc type class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:\\$model\\.$#"
-			count: 1
-			path: database/factories/UserFactory.php
-
-		-
-			message: "#^Method CreateUsersTable\\:\\:down\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_000000_create_users_table.php
-
-		-
-			message: "#^Method CreateUsersTable\\:\\:up\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_000000_create_users_table.php
-
-		-
-			message: "#^Method CreatePasswordResetsTable\\:\\:down\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
-
-		-
-			message: "#^Method CreatePasswordResetsTable\\:\\:up\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
-
-		-
-			message: "#^Method AddTwoFactorColumnsToUsersTable\\:\\:down\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
-
-		-
-			message: "#^Method AddTwoFactorColumnsToUsersTable\\:\\:up\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
-
-		-
-			message: "#^Method CreateFailedJobsTable\\:\\:down\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
-
-		-
-			message: "#^Method CreateFailedJobsTable\\:\\:up\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
-
-		-
-			message: "#^Method CreatePersonalAccessTokensTable\\:\\:down\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
-
-		-
-			message: "#^Method CreatePersonalAccessTokensTable\\:\\:up\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
-
-		-
-			message: "#^Method CreateSessionsTable\\:\\:down\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2021_09_05_232531_create_sessions_table.php
-
-		-
-			message: "#^Method CreateSessionsTable\\:\\:up\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/migrations/2021_09_05_232531_create_sessions_table.php
-
-		-
 			message: "#^Method Database\\\\Seeders\\\\DatabaseSeeder\\:\\:run\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: database/seeders/DatabaseSeeder.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$tokens\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$tokens\\.$#"
 			count: 3
 			path: tests/Feature/ApiTokenPermissionsTest.php
 
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:tokens\\(\\)\\.$#"
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:tokens\\(\\)\\.$#"
 			count: 1
+			path: tests/Feature/ApiTokenPermissionsTest.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:can\\(\\)\\.$#"
+			count: 3
 			path: tests/Feature/ApiTokenPermissionsTest.php
 
 		-
@@ -206,12 +156,12 @@ parameters:
 			path: tests/Feature/ApiTokenPermissionsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 2
 			path: tests/Feature/ApiTokenPermissionsTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$email\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$email\\.$#"
 			count: 2
 			path: tests/Feature/AuthenticationTest.php
 
@@ -236,13 +186,23 @@ parameters:
 			path: tests/Feature/BrowserSessionsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 1
 			path: tests/Feature/BrowserSessionsTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$tokens\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$tokens\\.$#"
 			count: 4
+			path: tests/Feature/CreateApiTokenTest.php
+
+		-
+			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$name\\.$#"
+			count: 1
+			path: tests/Feature/CreateApiTokenTest.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:can\\(\\)\\.$#"
+			count: 2
 			path: tests/Feature/CreateApiTokenTest.php
 
 		-
@@ -251,7 +211,7 @@ parameters:
 			path: tests/Feature/CreateApiTokenTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 2
 			path: tests/Feature/CreateApiTokenTest.php
 
@@ -266,17 +226,22 @@ parameters:
 			path: tests/Feature/DeleteAccountTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 2
 			path: tests/Feature/DeleteAccountTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$tokens\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$tokens\\.$#"
 			count: 1
 			path: tests/Feature/DeleteApiTokenTest.php
 
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:tokens\\(\\)\\.$#"
+			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$id\\.$#"
+			count: 1
+			path: tests/Feature/DeleteApiTokenTest.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:tokens\\(\\)\\.$#"
 			count: 1
 			path: tests/Feature/DeleteApiTokenTest.php
 
@@ -286,22 +251,22 @@ parameters:
 			path: tests/Feature/DeleteApiTokenTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 2
 			path: tests/Feature/DeleteApiTokenTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$email\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$email\\.$#"
 			count: 1
 			path: tests/Feature/EmailVerificationTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$id\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$id\\.$#"
 			count: 2
 			path: tests/Feature/EmailVerificationTest.php
 
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:hasVerifiedEmail\\(\\)\\.$#"
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:hasVerifiedEmail\\(\\)\\.$#"
 			count: 2
 			path: tests/Feature/EmailVerificationTest.php
 
@@ -321,14 +286,9 @@ parameters:
 			path: tests/Feature/EmailVerificationTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 3
 			path: tests/Feature/EmailVerificationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\ExampleTest\\:\\:test_example\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/ExampleTest.php
 
 		-
 			message: "#^Access to an undefined property object\\:\\:\\$event\\.$#"
@@ -356,12 +316,12 @@ parameters:
 			path: tests/Feature/PasswordConfirmationTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 3
 			path: tests/Feature/PasswordConfirmationTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$email\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$email\\.$#"
 			count: 4
 			path: tests/Feature/PasswordResetTest.php
 
@@ -386,12 +346,12 @@ parameters:
 			path: tests/Feature/PasswordResetTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$email\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$email\\.$#"
 			count: 2
 			path: tests/Feature/ProfileInformationTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$name\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$name\\.$#"
 			count: 2
 			path: tests/Feature/ProfileInformationTest.php
 
@@ -406,7 +366,7 @@ parameters:
 			path: tests/Feature/ProfileInformationTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 2
 			path: tests/Feature/ProfileInformationTest.php
 
@@ -426,12 +386,12 @@ parameters:
 			path: tests/Feature/RegistrationTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$two_factor_secret\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$two_factor_secret\\.$#"
 			count: 3
 			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
 
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:recoveryCodes\\(\\)\\.$#"
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:recoveryCodes\\(\\)\\.$#"
 			count: 4
 			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
 
@@ -451,12 +411,12 @@ parameters:
 			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 3
 			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
 
 		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$password\\.$#"
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\>\\:\\:\\$password\\.$#"
 			count: 3
 			path: tests/Feature/UpdatePasswordTest.php
 
@@ -476,7 +436,7 @@ parameters:
 			path: tests/Feature/UpdatePasswordTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model given\\.$#"
+			message: "#^Parameter \\#1 \\$user of method Illuminate\\\\Foundation\\\\Testing\\\\TestCase\\:\\:actingAs\\(\\) expects Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable, App\\\\Models\\\\User\\|Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<int, App\\\\Models\\\\User\\> given\\.$#"
 			count: 3
 			path: tests/Feature/UpdatePasswordTest.php
 

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
     /** Run the migrations. */
-    public function up()
+    public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
             $table->text('two_factor_secret')
@@ -20,7 +20,7 @@ return new class extends Migration {
     }
 
     /** Reverse the migrations. */
-    public function down()
+    public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('two_factor_secret', 'two_factor_recovery_codes');
