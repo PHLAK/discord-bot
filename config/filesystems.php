@@ -70,4 +70,17 @@ return [
         public_path('storage') => storage_path('app/public'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Disk Map
+    |--------------------------------------------------------------------------
+    |
+    | Array mapping classes to their required disk names.
+    |
+    */
+
+    'disk_map' => [
+        \App\Listeners\LibraryNew::class => 'public',
+    ],
+
 ];
