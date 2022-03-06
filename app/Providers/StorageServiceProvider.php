@@ -19,7 +19,7 @@ class StorageServiceProvider extends ServiceProvider
     /** Register services. */
     public function register()
     {
-        Collection::make(self::CLASS_TO_DISK_MAP)->each(function (string $class, string $disk): void {
+        Collection::make(self::CLASS_TO_DISK_MAP)->each(function (string $disk, string $class): void {
             $this->app->when($class)->needs(Filesystem::class)->give(
                 fn (Application $app): Filesystem => $app->runningUnitTests() ? Storage::fake($disk) : Storage::disk($disk)
             );
