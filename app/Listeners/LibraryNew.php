@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Enums\Plex\MetadataType;
 use App\Enums\PlexEvent;
 use App\Events\PlexEventReceived;
 use App\File;
@@ -54,8 +55,8 @@ class LibraryNew implements ShouldQueue
     /** Get the embeds for the received PLEX event. */
     private function embeds(object $event, string $fileName = null): array
     {
-        $embeds = match ($event->payload->Metadata->type) {
-            'movie' => [
+        $embeds = match (MetadataType::tryFrom($event->payload->Metadata->type)) {
+            MetadataType::MOVIE => [
                 [
                     'title' => $event->payload->Metadata->title,
                     'description' => $event->payload->Metadata->tagline ?? '',
@@ -67,7 +68,7 @@ class LibraryNew implements ShouldQueue
                     ],
                 ],
             ],
-            'episode' => [
+            MetadataType::EPISODE => [
                 [
                     'title' => $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title,
                     'description' => $event->payload->Metadata->title,
@@ -79,7 +80,7 @@ class LibraryNew implements ShouldQueue
                     // ],
                 ],
             ],
-            'track' => [
+            MetadataType::TRACK => [
                 [
 
                     'title' => $event->payload->Metadata->title,
