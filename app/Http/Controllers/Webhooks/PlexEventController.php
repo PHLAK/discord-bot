@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Webhooks;
 
+use App\Enums\Plex\Event;
 use App\Events\PlexEventReceived;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlexEventRequest;
@@ -19,7 +20,9 @@ class PlexEventController extends Controller
             abort(Response::HTTP_UNPROCESSABLE_ENTITY, 'Invalid JSON');
         }
 
-        PlexEventReceived::dispatch($payload, $request->thumb);
+        if (Event::tryFrom($payload->event) === Event::LIBRARY_NEW) {
+            PlexEventReceived::dispatch($payload, $request->thumb);
+        }
 
         return response()->noContent();
     }

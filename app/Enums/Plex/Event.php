@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enums;
+namespace App\Enums\Plex;
 
-enum PlexEvent: string
+enum Event: string
 {
     case LIBRARY_ON_DECK = 'library.on.deck';
     case LIBRARY_NEW = 'library.new';

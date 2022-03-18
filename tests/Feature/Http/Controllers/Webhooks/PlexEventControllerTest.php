@@ -33,6 +33,20 @@ class PlexEventControllerTest extends TestCase
     }
 
     /** @test */
+    public function it_does_not_dispatch_an_event_when_an_incorrect_plex_event_is_received(): void
+    {
+        $response = $this->postJson(route('webhooks.plex-event', [
+            'key' => config('webhooks.key'),
+        ]), [
+            'payload' => json_encode(['event' => 'media.play']),
+        ]);
+
+        $response->assertSuccessful();
+
+        Event::assertNotDispatched(PlexEventReceived::class);
+    }
+
+    /** @test */
     public function it_returns_an_error_when_receiving_a_malformed_payload(): void
     {
         $response = $this->postJson(route('webhooks.plex-event', [
