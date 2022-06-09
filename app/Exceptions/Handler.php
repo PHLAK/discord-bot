@@ -8,20 +8,12 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
-    /**
-     * A list of the exception types that are not reported.
-     *
-     * @var array
-     */
+    /** A list of the exception types that are not reported. */
     protected $dontReport = [
 
     ];
 
-    /**
-     * A list of the inputs that are never flashed for validation exceptions.
-     *
-     * @var array
-     */
+    /** A list of the inputs that are never flashed for validation exceptions. */
     protected $dontFlash = [
         'current_password',
         'password',

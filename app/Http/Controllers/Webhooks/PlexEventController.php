@@ -7,7 +7,7 @@ use App\Events\PlexEventReceived;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlexEventRequest;
 use Illuminate\Http\Response;
-use Symfony\Component\HttpFoundation\Exception\JsonException;
+use JsonException;
 
 class PlexEventController extends Controller
 {
