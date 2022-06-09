@@ -6,17 +6,6 @@ services:
     build: .
     image: phlak/discord-bot:dev
     depends_on: [mysql, redis]
-    environment: &app-environment
-      APP_ENV: 'local'
-      LOG_CHANNEL: 'stderr'
-      DB_HOST: ${DB_HOST:-mysql}
-      DB_PORT: ${DB_PORT:-3306}
-      DB_DATABASE: ${DB_DATABASE:-app}
-      DB_USERNAME: ${DB_USERNAME:-laravel}
-      DB_PASSWORD: ${DB_PASSWORD:-secret}
-      CACHE_DRIVER: 'redis'
-      REDIS_HOST: 'redis'
-      REDIS_PORT: 6379
     ports:
       - ${APP_PORT:-80}:80
     extra_hosts:
@@ -35,9 +24,9 @@ services:
       - ${DB_PORT:-3306}:3306
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-      MYSQL_DATABASE: ${DB_DATABASE:-app}
-      MYSQL_USER: ${DB_USERNAME:-laravel}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_DATABASE: app
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
     volumes:
       - mysql-data:/var/lib/mysql
       - ./.docker/mysql/:/docker-entrypoint-initdb.d
@@ -80,8 +69,6 @@ services:
       - mysql
       - redis
     profiles: [artisan]
-    environment:
-      <<: *app-environment
     volumes:
       - ./:/var/www/html
       - ./.docker/php/config/php.ini:/usr/local/etc/php/php.ini
