@@ -22,6 +22,8 @@
     },
     "require-dev": {
         "beyondcode/expose": "^2.0",
+        "captainhook/captainhook": "^5.10",
+        "captainhook/plugin-composer": "^5.3",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
@@ -71,7 +73,10 @@
             "php": "8.1"
         },
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "captainhook/plugin-composer": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
