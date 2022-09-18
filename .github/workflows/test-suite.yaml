@@ -102,4 +102,4 @@ jobs:
 
     steps:
       - name: Call Deployment Hook
-        run: curl ${{ secrets.DEPLOYMENT_TRIGGER_URL }}
+        run: curl ${{ secrets.DEPLOYMENT_HOOK_URL }}?token=${{ secrets.DEPLOYMENT_HOOK_TOKEN }}
