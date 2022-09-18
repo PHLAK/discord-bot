@@ -22,6 +22,7 @@ class LibraryNewTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider expectedPaylodDataProvider
      */
     public function it_should_queue_when_it_receieves_expected_payload_data(string $event, string $libraryTitle): void
@@ -38,6 +39,7 @@ class LibraryNewTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider unexpectedPaylodDataProvider
      */
     public function it_should_not_queue_for_an_unexpected_event_type(string $event, string $libraryTitle): void
