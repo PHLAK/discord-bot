@@ -16,9 +16,9 @@ class FileTest extends TestCase
             new UploadedFile(__DIR__ . '/../_data/test-file.txt', 'test-file.txt')
         );
 
-        $this->assertEquals('test-file.txt', $file->name());
-        $this->assertEquals('txt', $file->extension());
-        $this->assertEquals('Test file; please ignore', $file->content());
+        $this->assertEquals('test-file.txt', $file->name);
+        $this->assertEquals('txt', $file->extension);
+        $this->assertEquals('Test file; please ignore', $file->content);
     }
 
     /** @test */
@@ -30,8 +30,8 @@ class FileTest extends TestCase
 
         $unserializedFile = unserialize(serialize($file));
 
-        $this->assertEquals('test-file.txt', $unserializedFile->name());
-        $this->assertEquals('txt', $unserializedFile->extension());
-        $this->assertEquals('Test file; please ignore', $unserializedFile->content());
+        $this->assertEquals('test-file.txt', $unserializedFile->name);
+        $this->assertEquals('txt', $unserializedFile->extension);
+        $this->assertEquals('Test file; please ignore', $unserializedFile->content);
     }
 }

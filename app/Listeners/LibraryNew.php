@@ -35,9 +35,9 @@ class LibraryNew implements ShouldQueue
     {
         if ($event->file instanceof File) {
             $title = $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title;
-            $fileName = sprintf('posters/%s.%s', sha1($title), $event->file->extension());
+            $fileName = sprintf('posters/%s.%s', sha1($title), $event->file->extension);
 
-            $this->storage->put($fileName, $event->file->content());
+            $this->storage->put($fileName, $event->file->content);
         }
 
         Http::post(config('services.discord.webhook_url'), [

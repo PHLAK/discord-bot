@@ -8,9 +8,9 @@ class File
 {
     /** Create a new File. */
     public function __construct(
-        private string $name,
-        private string $extension,
-        private string $content
+        public readonly string $name,
+        public readonly string $extension,
+        public readonly string $content
     ) {
     }
 
@@ -36,23 +36,5 @@ class File
     public static function createFromUploadedFile(UploadedFile $file): self
     {
         return new self($file->getClientOriginalName(), $file->extension(), $file->getContent());
-    }
-
-    /** Get the file name. */
-    public function name(): string
-    {
-        return $this->name;
-    }
-
-    /** Method description... */
-    public function extension(): string
-    {
-        return $this->extension;
-    }
-
-    /** Get the file content. */
-    public function content(): string
-    {
-        return $this->content;
     }
 }
