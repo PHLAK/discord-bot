@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
-use JsonException;
 use Laravel\Telescope\EntryType;
 use Laravel\Telescope\IncomingEntry;
 use Laravel\Telescope\Telescope;
@@ -42,13 +41,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
                 return [];
             }
 
-            try {
-                $payload = json_decode($entry->content['payload'], flags: JSON_THROW_ON_ERROR);
-            } catch (JsonException) {
-                return [];
-            }
-
-            return [sprintf('event:%s', $payload->event)];
+            return [sprintf('event:%s', $entry->content['payload']['event'])];
         });
     }
 
