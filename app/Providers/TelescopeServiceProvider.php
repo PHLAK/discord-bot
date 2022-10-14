@@ -31,18 +31,6 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
                 || $entry->type === EntryType::JOB
                 || $entry->type === EntryType::LOG;
         });
-
-        Telescope::tag(function (IncomingEntry $entry) {
-            if ($entry->type !== EntryType::REQUEST) {
-                return [];
-            }
-
-            if (! array_key_exists('payload', $entry->content)) {
-                return [];
-            }
-
-            return [sprintf('event:%s', $entry->content['payload']['event'])];
-        });
     }
 
     /** Prevent sensitive request details from being logged by Telescope. */
