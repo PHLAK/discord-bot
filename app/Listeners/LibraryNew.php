@@ -72,12 +72,10 @@ class LibraryNew implements ShouldQueue
                 [
                     'title' => $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title,
                     'description' => $event->payload->Metadata->title,
-                    // 'fields' => [
-                    //     [
-                    //         $this->inlineField('Season', '04'),
-                    //         $this->inlineField('Episode', '12'),
-                    //     ],
-                    // ],
+                    'fields' => [
+                        $this->inlineField('Season', $event->payload->Metadata->parentIndex),
+                        $this->inlineField('Episode', $event->payload->Metadata->index),
+                    ],
                 ],
             ],
             MetadataType::TRACK => [

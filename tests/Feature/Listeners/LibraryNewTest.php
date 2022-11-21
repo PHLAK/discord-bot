@@ -70,6 +70,10 @@ class LibraryNewTest extends TestCase
                     [
                         'title' => 'Archer (2009)',
                         'description' => 'Shots',
+                        'fields' => [
+                            ['name' => 'Season', 'value' => '12', 'inline' => true],
+                            ['name' => 'Episode', 'value' => '5', 'inline' => true],
+                        ],
                     ],
                 ];
         });
