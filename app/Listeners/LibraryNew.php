@@ -8,6 +8,7 @@ use App\Events\PlexEventReceived;
 use App\File;
 use App\Listeners\Traits\ReportOnFailure;
 use App\Listeners\Traits\RetryWithBackoff;
+use App\Support\Embed;
 use Carbon\CarbonInterval;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -61,10 +62,10 @@ class LibraryNew implements ShouldQueue
                     'title' => $event->payload->Metadata->title,
                     'description' => $event->payload->Metadata->tagline ?? '',
                     'fields' => [
-                        $this->inlineField('Year', $event->payload->Metadata->year),
-                        $this->inlineField('Rating', $event->payload->Metadata->contentRating ?? 'Not Rated'),
-                        $this->field('Genre', Collection::make($event->payload->Metadata->Genre)->pluck('tag')->implode(', ')),
-                        $this->field('Runtime', CarbonInterval::milliseconds($event->payload->Metadata->duration)->cascade()->forHumans(short: true)),
+                        Embed::inlineField('Year', $event->payload->Metadata->year),
+                        Embed::inlineField('Rating', $event->payload->Metadata->contentRating ?? 'Not Rated'),
+                        Embed::field('Genre', Collection::make($event->payload->Metadata->Genre)->pluck('tag')->implode(', ')),
+                        Embed::field('Runtime', CarbonInterval::milliseconds($event->payload->Metadata->duration)->cascade()->forHumans(short: true)),
                     ],
                 ],
             ],
@@ -73,14 +74,13 @@ class LibraryNew implements ShouldQueue
                     'title' => $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title,
                     'description' => $event->payload->Metadata->title,
                     'fields' => [
-                        $this->inlineField('Season', $event->payload->Metadata->parentIndex),
-                        $this->inlineField('Episode', $event->payload->Metadata->index),
+                        Embed::inlineField('Season', $event->payload->Metadata->parentIndex),
+                        Embed::inlineField('Episode', $event->payload->Metadata->index),
                     ],
                 ],
             ],
             MetadataType::TRACK => [
                 [
-
                     'title' => $event->payload->Metadata->title,
                     'description' => $event->payload->Metadata->title,
                 ],
@@ -98,21 +98,5 @@ class LibraryNew implements ShouldQueue
         }
 
         return $embeds;
-    }
-
-    /** Build a field array. */
-    private function field(string $name, string $value, bool $inline = false): array
-    {
-        return [
-            'name' => $name,
-            'value' => $value,
-            'inline' => $inline,
-        ];
-    }
-
-    /** Build an inline field array. */
-    private function inlineField(string $name, string $value): array
-    {
-        return $this->field($name, $value, true);
     }
 }
