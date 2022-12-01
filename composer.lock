@@ -4580,16 +4580,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.1.7",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "a1282bd0c096e0bdb8800b104177e2ce404d8815"
+                "reference": "75d4749d9620a8fa21a2d2847800a84b5c4e7682"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/a1282bd0c096e0bdb8800b104177e2ce404d8815",
-                "reference": "a1282bd0c096e0bdb8800b104177e2ce404d8815",
+                "url": "https://api.github.com/repos/symfony/console/zipball/75d4749d9620a8fa21a2d2847800a84b5c4e7682",
+                "reference": "75d4749d9620a8fa21a2d2847800a84b5c4e7682",
                 "shasum": ""
             },
             "require": {
@@ -4656,7 +4656,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.1.7"
+                "source": "https://github.com/symfony/console/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -4672,7 +4672,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-26T21:42:49+00:00"
+            "time": "2022-11-29T16:44:51+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -6414,16 +6414,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v6.1.3",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "a6506e99cfad7059b1ab5cab395854a0a0c21292"
+                "reference": "ba6e55359f8f755fe996c58a81e00eaa67a35877"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/a6506e99cfad7059b1ab5cab395854a0a0c21292",
-                "reference": "a6506e99cfad7059b1ab5cab395854a0a0c21292",
+                "url": "https://api.github.com/repos/symfony/process/zipball/ba6e55359f8f755fe996c58a81e00eaa67a35877",
+                "reference": "ba6e55359f8f755fe996c58a81e00eaa67a35877",
                 "shasum": ""
             },
             "require": {
@@ -6455,7 +6455,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v6.1.3"
+                "source": "https://github.com/symfony/process/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -6471,7 +6471,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-27T17:24:16+00:00"
+            "time": "2022-11-02T09:08:04+00:00"
         },
         {
             "name": "symfony/psr-http-message-bridge",
@@ -6736,16 +6736,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.1.7",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "823f143370880efcbdfa2dbca946b3358c4707e5"
+                "reference": "145702685e0d12f81d755c71127bfff7582fdd36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/823f143370880efcbdfa2dbca946b3358c4707e5",
-                "reference": "823f143370880efcbdfa2dbca946b3358c4707e5",
+                "url": "https://api.github.com/repos/symfony/string/zipball/145702685e0d12f81d755c71127bfff7582fdd36",
+                "reference": "145702685e0d12f81d755c71127bfff7582fdd36",
                 "shasum": ""
             },
             "require": {
@@ -6761,6 +6761,7 @@
             "require-dev": {
                 "symfony/error-handler": "^5.4|^6.0",
                 "symfony/http-client": "^5.4|^6.0",
+                "symfony/intl": "^6.2",
                 "symfony/translation-contracts": "^2.0|^3.0",
                 "symfony/var-exporter": "^5.4|^6.0"
             },
@@ -6801,7 +6802,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.1.7"
+                "source": "https://github.com/symfony/string/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -6817,7 +6818,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-10T09:34:31+00:00"
+            "time": "2022-11-30T17:13:47+00:00"
         },
         {
             "name": "symfony/translation",
@@ -7513,16 +7514,16 @@
         },
         {
             "name": "captainhook/captainhook",
-            "version": "5.11.1",
+            "version": "5.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/captainhookphp/captainhook.git",
-                "reference": "44ba2b815a64ea71a3dc4afc9007d953ab992238"
+                "reference": "f27f1eb32aff4d3ddad383718b807493413269c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/captainhookphp/captainhook/zipball/44ba2b815a64ea71a3dc4afc9007d953ab992238",
-                "reference": "44ba2b815a64ea71a3dc4afc9007d953ab992238",
+                "url": "https://api.github.com/repos/captainhookphp/captainhook/zipball/f27f1eb32aff4d3ddad383718b807493413269c2",
+                "reference": "f27f1eb32aff4d3ddad383718b807493413269c2",
                 "shasum": ""
             },
             "require": {
@@ -7584,7 +7585,7 @@
             ],
             "support": {
                 "issues": "https://github.com/captainhookphp/captainhook/issues",
-                "source": "https://github.com/captainhookphp/captainhook/tree/5.11.1"
+                "source": "https://github.com/captainhookphp/captainhook/tree/5.11.2"
             },
             "funding": [
                 {
@@ -7592,7 +7593,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-11T16:45:34+00:00"
+            "time": "2022-11-25T10:15:49+00:00"
         },
         {
             "name": "captainhook/plugin-composer",
@@ -10933,16 +10934,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v6.1.5",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "4d216a2beef096edf040a070117c39ca2abce307"
+                "reference": "50b2523c874605cf3d4acf7a9e2b30b6a440a016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/4d216a2beef096edf040a070117c39ca2abce307",
-                "reference": "4d216a2beef096edf040a070117c39ca2abce307",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/50b2523c874605cf3d4acf7a9e2b30b6a440a016",
+                "reference": "50b2523c874605cf3d4acf7a9e2b30b6a440a016",
                 "shasum": ""
             },
             "require": {
@@ -10976,7 +10977,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v6.1.5"
+                "source": "https://github.com/symfony/filesystem/tree/v6.2.0"
             },
             "funding": [
                 {
@@ -10992,7 +10993,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-21T20:29:40+00:00"
+            "time": "2022-11-20T13:01:27+00:00"
         },
         {
             "name": "symfony/stopwatch",
