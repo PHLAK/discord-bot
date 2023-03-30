@@ -6,9 +6,29 @@ parameters:
 			path: app/Actions/Fortify/CreateNewUser.php
 
 		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\CreateNewUser\\:\\:create\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: app/Actions/Fortify/CreateNewUser.php
+
+		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Actions/Fortify/ResetUserPassword.php
+
+		-
 			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Actions/Fortify/ResetUserPassword.php
+
+		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: app/Actions/Fortify/ResetUserPassword.php
+
+		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserPassword\\:\\:update\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Actions/Fortify/UpdateUserPassword.php
 
 		-
 			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserPassword\\:\\:update\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
@@ -16,7 +36,22 @@ parameters:
 			path: app/Actions/Fortify/UpdateUserPassword.php
 
 		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserPassword\\:\\:update\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: app/Actions/Fortify/UpdateUserPassword.php
+
+		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:update\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
 			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:update\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: app/Actions/Fortify/UpdateUserProfileInformation.php
+
+		-
+			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:update\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Actions/Fortify/UpdateUserProfileInformation.php
 
@@ -26,8 +61,58 @@ parameters:
 			path: app/Actions/Fortify/UpdateUserProfileInformation.php
 
 		-
+			message: "#^Method App\\\\Actions\\\\Jetstream\\\\DeleteUser\\:\\:delete\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: app/Actions/Jetstream/DeleteUser.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Http\\\\Kernel\\:\\:\\$middleware is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Kernel\\:\\:\\$middleware\\.$#"
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Http\\\\Kernel\\:\\:\\$middlewareGroups is not covariant with PHPDoc type array\\<string, array\\<int, string\\>\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Kernel\\:\\:\\$middlewareGroups\\.$#"
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Http\\\\Kernel\\:\\:\\$routeMiddleware is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Kernel\\:\\:\\$routeMiddleware\\.$#"
+			count: 1
+			path: app/Http/Kernel.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\EncryptCookies\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Cookie\\\\Middleware\\\\EncryptCookies\\:\\:\\$except\\.$#"
+			count: 1
+			path: app/Http/Middleware/EncryptCookies.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\\:\\:\\$except\\.$#"
+			count: 1
+			path: app/Http/Middleware/PreventRequestsDuringMaintenance.php
+
+		-
+			message: "#^Method App\\\\Http\\\\Middleware\\\\RedirectIfAuthenticated\\:\\:handle\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: app/Http/Middleware/RedirectIfAuthenticated.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\TrimStrings\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\\:\\:\\$except\\.$#"
+			count: 1
+			path: app/Http/Middleware/TrimStrings.php
+
+		-
+			message: "#^PHPDoc type array\\|string\\|null of property App\\\\Http\\\\Middleware\\\\TrustProxies\\:\\:\\$proxies is not covariant with PHPDoc type array\\<int, string\\>\\|string\\|null of overridden property Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\\:\\:\\$proxies\\.$#"
+			count: 1
+			path: app/Http/Middleware/TrustProxies.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\VerifyCsrfToken\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\VerifyCsrfToken\\:\\:\\$except\\.$#"
+			count: 1
+			path: app/Http/Middleware/VerifyCsrfToken.php
+
+		-
 			message: "#^Access to an undefined property object\\:\\:\\$Metadata\\.$#"
-			count: 3
+			count: 4
 			path: app/Listeners/LibraryNew.php
 
 		-
@@ -37,12 +122,22 @@ parameters:
 
 		-
 			message: "#^Access to an undefined property object\\:\\:\\$event\\.$#"
-			count: 1
+			count: 2
 			path: app/Listeners/LibraryNew.php
 
 		-
 			message: "#^Access to an undefined property object\\:\\:\\$payload\\.$#"
-			count: 12
+			count: 14
+			path: app/Listeners/LibraryNew.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$server\\.$#"
+			count: 1
+			path: app/Listeners/LibraryNew.php
+
+		-
+			message: "#^Method App\\\\Listeners\\\\LibraryNew\\:\\:embeds\\(\\) should return array but returns array\\<int, array\\<string, mixed\\>\\>\\|void\\.$#"
+			count: 1
 			path: app/Listeners/LibraryNew.php
 
 		-
@@ -71,6 +166,11 @@ parameters:
 			path: app/Listeners/LibraryNew.php
 
 		-
+			message: "#^Method App\\\\Providers\\\\AppServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: app/Providers/AppServiceProvider.php
+
+		-
 			message: "#^Method App\\\\Providers\\\\AuthServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: app/Providers/AuthServiceProvider.php
@@ -81,12 +181,27 @@ parameters:
 			path: app/Providers/BroadcastServiceProvider.php
 
 		-
+			message: "#^Method App\\\\Providers\\\\BroadcastServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: app/Providers/BroadcastServiceProvider.php
+
+		-
+			message: "#^PHPDoc type array of property App\\\\Providers\\\\EventServiceProvider\\:\\:\\$listen is not covariant with PHPDoc type array\\<string, array\\<int, string\\>\\> of overridden property Illuminate\\\\Foundation\\\\Support\\\\Providers\\\\EventServiceProvider\\:\\:\\$listen\\.$#"
+			count: 1
+			path: app/Providers/EventServiceProvider.php
+
+		-
 			message: "#^Method App\\\\Providers\\\\FortifyServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: app/Providers/FortifyServiceProvider.php
 
 		-
-			message: "#^Method App\\\\Providers\\\\HorizonServiceProvider\\:\\:gate\\(\\) throws checked exception InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Method App\\\\Providers\\\\FortifyServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 2
+			path: app/Providers/FortifyServiceProvider.php
+
+		-
+			message: "#^Method App\\\\Providers\\\\HorizonServiceProvider\\:\\:gate\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Providers/HorizonServiceProvider.php
 
@@ -101,7 +216,7 @@ parameters:
 			path: app/Providers/JetstreamServiceProvider.php
 
 		-
-			message: "#^Method App\\\\Providers\\\\TelescopeServiceProvider\\:\\:gate\\(\\) throws checked exception InvalidArgumentException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Method App\\\\Providers\\\\TelescopeServiceProvider\\:\\:gate\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Providers/TelescopeServiceProvider.php
 
@@ -119,6 +234,66 @@ parameters:
 			message: "#^Method Database\\\\Factories\\\\UserFactory\\:\\:withPersonalTeam\\(\\) should return \\$this\\(Database\\\\Factories\\\\UserFactory\\) but returns static\\(Database\\\\Factories\\\\UserFactory\\)\\.$#"
 			count: 2
 			path: database/factories/UserFactory.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_000000_create_users_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_000000_create_users_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_000000_create_users_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_000000_create_users_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_100000_create_password_resets_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_100000_create_password_resets_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2019_08_19_000000_create_failed_jobs_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2019_08_19_000000_create_failed_jobs_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2019_12_14_000001_create_personal_access_tokens_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2019_12_14_000001_create_personal_access_tokens_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2021_09_05_232531_create_sessions_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2021_09_05_232531_create_sessions_table.php
+
+		-
+			message: "#^Method class@anonymous/database/migrations/2021_09_05_232531_create_sessions_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
+			path: database/migrations/2021_09_05_232531_create_sessions_table.php
 
 		-
 			message: "#^Method Database\\\\Seeders\\\\DatabaseSeeder\\:\\:run\\(\\) has no return type specified\\.$#"
@@ -249,6 +424,11 @@ parameters:
 			message: "#^Method Tests\\\\Feature\\\\PasswordResetTest\\:\\:test_reset_password_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: tests/Feature/PasswordResetTest.php
+
+		-
+			message: "#^Access to an undefined property Livewire\\\\Testing\\\\TestableLivewire\\:\\:\\$state\\.$#"
+			count: 2
+			path: tests/Feature/ProfileInformationTest.php
 
 		-
 			message: "#^Method Tests\\\\Feature\\\\ProfileInformationTest\\:\\:test_current_profile_information_is_available\\(\\) has no return type specified\\.$#"
