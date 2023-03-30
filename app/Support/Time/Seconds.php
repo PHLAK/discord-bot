@@ -7,8 +7,14 @@ final class Seconds
     /** Seconds in one minute. */
     public const ONE_MINUTE = 60;
 
+    /** Seconds in two minutes. */
+    public const TWO_MINUTES = 120;
+
     /** Seconds in three minutes. */
     public const THREE_MINUTES = 180;
+
+    /** Seconds in four minutes. */
+    public const FOUR_MINUTES = 240;
 
     /** Seconds in five minutes. */
     public const FIVE_MINUTES = 300;

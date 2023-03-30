@@ -13,9 +13,10 @@ trait RetryWithBackoff
     {
         return [
             Seconds::ONE_MINUTE,
+            Seconds::TWO_MINUTES,
             Seconds::THREE_MINUTES,
+            Seconds::FOUR_MINUTES,
             Seconds::FIVE_MINUTES,
-            Seconds::FIFTEEN_MINUTES,
         ];
     }
 }
