@@ -36,7 +36,7 @@ class LibraryNew implements ShouldQueue
     public function handle(PlexEventReceived $event): void
     {
         Log::withContext([
-            'server' => $event->payload->server->title,
+            'server' => $event->payload->Server->title,
             'event' => $event->payload->event,
             'type' => $event->payload->Metadata->type,
         ]);
