@@ -16,6 +16,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\Middleware\RateLimited;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class LibraryNew implements ShouldQueue
 {
@@ -34,6 +35,12 @@ class LibraryNew implements ShouldQueue
 
     public function handle(PlexEventReceived $event): void
     {
+        Log::withContext([
+            'server' => $event->payload->server->title,
+            'event' => $event->payload->event,
+            'type' => $event->payload->Metadata->type,
+        ]);
+
         if ($event->file instanceof File) {
             $title = $event->payload->Metadata->grandparentTitle ?? $event->payload->Metadata->title;
             $fileName = sprintf('posters/%s.%s', sha1($title), $event->file->extension);
@@ -79,18 +86,19 @@ class LibraryNew implements ShouldQueue
                     ],
                 ],
             ],
+            MetadataType::ALBUM => [
+                [
+                    'title' => $event->payload->Metadata->title,
+                    'description' => $event->payload->Metadata->title,
+                ],
+            ],
             MetadataType::TRACK => [
                 [
                     'title' => $event->payload->Metadata->title,
                     'description' => $event->payload->Metadata->title,
                 ],
             ],
-            default => [
-                [
-                    'title' => $event->payload->Metadata->title,
-                    'description' => $event->payload->Metadata->grandparentTitle ?? null,
-                ],
-            ]
+            default => Log::info(sprintf('Ignored library.new [%s] event', $event->payload->Metadata->type))
         };
 
         if (isset($fileName)) {
