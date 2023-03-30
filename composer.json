@@ -74,7 +74,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "captainhook/plugin-composer": true
+            "captainhook/plugin-composer": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "dev",
