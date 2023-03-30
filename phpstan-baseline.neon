@@ -117,7 +117,7 @@ parameters:
 
 		-
 			message: "#^Access to an undefined property object\\:\\:\\$Server\\.$#"
-			count: 1
+			count: 2
 			path: app/Listeners/LibraryNew.php
 
 		-
@@ -128,11 +128,6 @@ parameters:
 		-
 			message: "#^Access to an undefined property object\\:\\:\\$payload\\.$#"
 			count: 14
-			path: app/Listeners/LibraryNew.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$server\\.$#"
-			count: 1
 			path: app/Listeners/LibraryNew.php
 
 		-
