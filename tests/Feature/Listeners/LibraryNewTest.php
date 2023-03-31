@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Listeners;
 
+use App\Enums\Plex\MetadataType;
 use App\Events\PlexEventReceived;
 use App\Listeners\LibraryNew;
 use Illuminate\Http\Client\Request;
@@ -18,6 +19,7 @@ class LibraryNewTest extends TestCase
         parent::setUp();
 
         config(['services.plex.libraries' => ['Movies', 'Shows', 'Music']]);
+        config(['services.plex.enabled_types' => [MetadataType::ALBUM, MetadataType::MOVIE, MetadataType::SHOW]]);
     }
 
     /**
@@ -25,12 +27,13 @@ class LibraryNewTest extends TestCase
      *
      * @dataProvider expectedPaylodDataProvider
      */
-    public function it_should_queue_when_it_receieves_expected_payload_data(string $event, string $libraryTitle): void
+    public function it_should_queue_when_it_receieves_expected_payload_data(string $event, string $libraryTitle, string $metadataType): void
     {
         $payload = (object) [
             'event' => $event,
             'Metadata' => (object) [
                 'librarySectionTitle' => $libraryTitle,
+                'type' => $metadataType,
             ],
         ];
 
@@ -42,12 +45,13 @@ class LibraryNewTest extends TestCase
      *
      * @dataProvider unexpectedPaylodDataProvider
      */
-    public function it_should_not_queue_for_an_unexpected_event_type(string $event, string $libraryTitle): void
+    public function it_should_not_queue_for_an_unexpected_event_type(string $event, string $libraryTitle, string $metadataType): void
     {
         $payload = (object) [
             'event' => $event,
             'Metadata' => (object) [
                 'librarySectionTitle' => $libraryTitle,
+                'type' => $metadataType,
             ],
         ];
 
@@ -113,20 +117,21 @@ class LibraryNewTest extends TestCase
     public function expectedPaylodDataProvider(): array
     {
         return [
-            ['library.new', 'Movies'],
-            ['library.new', 'Shows'],
-            ['library.new', 'Music'],
+            ['library.new', 'Movies', 'movie'],
+            ['library.new', 'Shows', 'show'],
+            ['library.new', 'Music', 'album'],
         ];
     }
 
     public function unexpectedPaylodDataProvider(): array
     {
         return [
-            ['library.new', 'Other'],
-            ['media.play', 'Movies'],
-            ['media.pause', 'Shows'],
-            ['media.resume', 'Music'],
-            ['media.stop', 'Other'],
+            ['library.new', 'Other', 'movie'],
+            ['library.new', 'Movies', 'other'],
+            ['media.play', 'Movies', 'movie'],
+            ['media.pause', 'Shows', 'show'],
+            ['media.resume', 'Music', 'album'],
+            ['media.stop', 'Other', 'other'],
         ];
     }
 }

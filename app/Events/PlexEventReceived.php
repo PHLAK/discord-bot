@@ -8,16 +8,17 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Queue\SerializesModels;
+use stdClass;
 
 class PlexEventReceived
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public object $payload;
+    public stdClass $payload;
     public ?File $file = null;
 
     /** Create a new event instance. */
-    public function __construct(object $payload, UploadedFile $file = null)
+    public function __construct(stdClass $payload, UploadedFile $file = null)
     {
         $this->payload = $payload;
 

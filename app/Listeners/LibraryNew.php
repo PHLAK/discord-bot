@@ -30,6 +30,7 @@ class LibraryNew implements ShouldQueue
     public function shouldQueue(PlexEventReceived $event): bool
     {
         return Event::tryFrom($event->payload->event) === Event::LIBRARY_NEW
+            && in_array(MetadataType::tryFrom($event->payload->Metadata->type), config('services.plex.enabled_types'))
             && in_array($event->payload->Metadata->librarySectionTitle, config('services.plex.libraries', []));
     }
 
@@ -98,7 +99,12 @@ class LibraryNew implements ShouldQueue
                     'description' => $event->payload->Metadata->title,
                 ],
             ],
-            default => Log::info(sprintf('Ignored library.new [%s] event', $event->payload->Metadata->type))
+            default => [
+                [
+                    'title' => $event->payload->Metadata->title,
+                    'description' => $event->payload->Metadata->grandparentTitle ?? null,
+                ],
+            ]
         };
 
         if (isset($fileName)) {

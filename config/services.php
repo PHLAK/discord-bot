@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\Plex;
+
 return [
 
     /*
@@ -37,6 +39,14 @@ return [
 
     'plex' => [
         'libraries' => ['Movies', 'Music', 'Shows'],
+        'enabled_types' => [
+            Plex\MetadataType::ALBUM,
+            Plex\MetadataType::ARTIST,
+            Plex\MetadataType::EPISODE,
+            Plex\MetadataType::MOVIE,
+            // Plex\MetadataType::SHOW,
+            // Plex\MetadataType::TRACK,
+        ],
     ],
 
 ];

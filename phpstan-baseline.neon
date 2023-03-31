@@ -111,28 +111,8 @@ parameters:
 			path: app/Http/Middleware/VerifyCsrfToken.php
 
 		-
-			message: "#^Access to an undefined property object\\:\\:\\$Metadata\\.$#"
-			count: 4
-			path: app/Listeners/LibraryNew.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$Server\\.$#"
-			count: 2
-			path: app/Listeners/LibraryNew.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$event\\.$#"
-			count: 2
-			path: app/Listeners/LibraryNew.php
-
-		-
 			message: "#^Access to an undefined property object\\:\\:\\$payload\\.$#"
 			count: 14
-			path: app/Listeners/LibraryNew.php
-
-		-
-			message: "#^Method App\\\\Listeners\\\\LibraryNew\\:\\:embeds\\(\\) should return array but returns array\\<int, array\\<string, mixed\\>\\>\\|void\\.$#"
-			count: 1
 			path: app/Listeners/LibraryNew.php
 
 		-
@@ -374,11 +354,6 @@ parameters:
 			message: "#^Method Tests\\\\Feature\\\\EmailVerificationTest\\:\\:test_email_verification_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: tests/Feature/EmailVerificationTest.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$event\\.$#"
-			count: 1
-			path: tests/Feature/Http/Controllers/Webhooks/PlexEventControllerTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|false given\\.$#"
