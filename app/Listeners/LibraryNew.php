@@ -89,7 +89,7 @@ class LibraryNew implements ShouldQueue
             ],
             MetadataType::ALBUM => [
                 [
-                    'title' => $event->payload->Metadata->title,
+                    'title' => $event->payload->Metadata->parentTitle,
                     'description' => $event->payload->Metadata->title,
                 ],
             ],
