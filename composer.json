@@ -30,7 +30,7 @@
         "nunomaduro/collision": "^6.1",
         "nunomaduro/larastan": "^2.0",
         "phlak/coding-standards": "^2.1",
-        "phpunit/phpunit": "^9.5",
+        "phpunit/phpunit": "^10.0",
         "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
