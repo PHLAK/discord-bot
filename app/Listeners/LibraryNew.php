@@ -24,8 +24,7 @@ class LibraryNew implements ShouldQueue
 
     public function __construct(
         public Filesystem $storage
-    ) {
-    }
+    ) {}
 
     public function shouldQueue(PlexEventReceived $event): bool
     {

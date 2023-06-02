@@ -11,8 +11,7 @@ class File
         public readonly string $name,
         public readonly string $extension,
         public readonly string $content
-    ) {
-    }
+    ) {}
 
     /** Serialize the object. */
     public function __serialize(): array
