@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * The path to the "home" route for your application.
+     * The path to your application's "home" route.
      *
      * This is used by Laravel authentication to redirect users after login.
      *
@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/dashboard';
 
     /** Define your route model bindings, pattern filters, etc. */
-    public function boot()
+    public function boot(): void
     {
         $this->routes(function () {
             Route::prefix('api')

@@ -1,11 +1,13 @@
 /node_modules/
+/public/build/
 /public/css/
 /public/js/
 /public/storage/
+/public/hot
 /storage/*.key
 /vendor/
 /.env
 /.env.*
 /.php-cs-fixer.cache
 /.phpunit.result.cache
-/public/mix-manifest.json
+/.phpunit.cache

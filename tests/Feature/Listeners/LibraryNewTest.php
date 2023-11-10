@@ -22,6 +22,27 @@ class LibraryNewTest extends TestCase
         config(['services.plex.enabled_types' => [MetadataType::ALBUM, MetadataType::MOVIE, MetadataType::SHOW]]);
     }
 
+    public static function expectedPaylodDataProvider(): array
+    {
+        return [
+            ['library.new', 'Movies', 'movie'],
+            ['library.new', 'Shows', 'show'],
+            ['library.new', 'Music', 'album'],
+        ];
+    }
+
+    public static function unexpectedPaylodDataProvider(): array
+    {
+        return [
+            ['library.new', 'Other', 'movie'],
+            ['library.new', 'Movies', 'other'],
+            ['media.play', 'Movies', 'movie'],
+            ['media.pause', 'Shows', 'show'],
+            ['media.resume', 'Music', 'album'],
+            ['media.stop', 'Other', 'other'],
+        ];
+    }
+
     /**
      * @test
      *
@@ -112,26 +133,5 @@ class LibraryNewTest extends TestCase
                     ],
                 ];
         });
-    }
-
-    public function expectedPaylodDataProvider(): array
-    {
-        return [
-            ['library.new', 'Movies', 'movie'],
-            ['library.new', 'Shows', 'show'],
-            ['library.new', 'Music', 'album'],
-        ];
-    }
-
-    public function unexpectedPaylodDataProvider(): array
-    {
-        return [
-            ['library.new', 'Other', 'movie'],
-            ['library.new', 'Movies', 'other'],
-            ['media.play', 'Movies', 'movie'],
-            ['media.pause', 'Shows', 'show'],
-            ['media.resume', 'Music', 'album'],
-            ['media.stop', 'Other', 'other'],
-        ];
     }
 }
