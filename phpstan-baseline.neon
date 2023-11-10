@@ -11,11 +11,6 @@ parameters:
 			path: app/Actions/Fortify/CreateNewUser.php
 
 		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Actions/Fortify/ResetUserPassword.php
-
-		-
 			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Actions/Fortify/ResetUserPassword.php
@@ -24,11 +19,6 @@ parameters:
 			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 2
 			path: app/Actions/Fortify/ResetUserPassword.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserPassword\\:\\:update\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Actions/Fortify/UpdateUserPassword.php
 
 		-
 			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserPassword\\:\\:update\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
@@ -41,11 +31,6 @@ parameters:
 			path: app/Actions/Fortify/UpdateUserPassword.php
 
 		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:update\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Actions/Fortify/UpdateUserProfileInformation.php
-
-		-
 			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:update\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Actions/Fortify/UpdateUserProfileInformation.php
@@ -56,29 +41,14 @@ parameters:
 			path: app/Actions/Fortify/UpdateUserProfileInformation.php
 
 		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:updateVerifiedUser\\(\\) has no return type specified\\.$#"
+			message: "#^Parameter \\#1 \\$photo of method App\\\\Models\\\\User\\:\\:updateProfilePhoto\\(\\) expects Illuminate\\\\Http\\\\UploadedFile, string given\\.$#"
 			count: 1
 			path: app/Actions/Fortify/UpdateUserProfileInformation.php
 
 		-
-			message: "#^Method App\\\\Actions\\\\Jetstream\\\\DeleteUser\\:\\:delete\\(\\) has no return type specified\\.$#"
+			message: "#^Method App\\\\Actions\\\\Jetstream\\\\DeleteUser\\:\\:delete\\(\\) throws checked exception LogicException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Actions/Jetstream/DeleteUser.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Http\\\\Kernel\\:\\:\\$middleware is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Kernel\\:\\:\\$middleware\\.$#"
-			count: 1
-			path: app/Http/Kernel.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Http\\\\Kernel\\:\\:\\$middlewareGroups is not covariant with PHPDoc type array\\<string, array\\<int, string\\>\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Kernel\\:\\:\\$middlewareGroups\\.$#"
-			count: 1
-			path: app/Http/Kernel.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Http\\\\Kernel\\:\\:\\$routeMiddleware is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Kernel\\:\\:\\$routeMiddleware\\.$#"
-			count: 1
-			path: app/Http/Kernel.php
 
 		-
 			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\EncryptCookies\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Cookie\\\\Middleware\\\\EncryptCookies\\:\\:\\$except\\.$#"
@@ -146,29 +116,9 @@ parameters:
 			path: app/Providers/AppServiceProvider.php
 
 		-
-			message: "#^Method App\\\\Providers\\\\AuthServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Providers/AuthServiceProvider.php
-
-		-
-			message: "#^Method App\\\\Providers\\\\BroadcastServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Providers/BroadcastServiceProvider.php
-
-		-
 			message: "#^Method App\\\\Providers\\\\BroadcastServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Providers/BroadcastServiceProvider.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Providers\\\\EventServiceProvider\\:\\:\\$listen is not covariant with PHPDoc type array\\<string, array\\<int, string\\>\\> of overridden property Illuminate\\\\Foundation\\\\Support\\\\Providers\\\\EventServiceProvider\\:\\:\\$listen\\.$#"
-			count: 1
-			path: app/Providers/EventServiceProvider.php
-
-		-
-			message: "#^Method App\\\\Providers\\\\FortifyServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Providers/FortifyServiceProvider.php
 
 		-
 			message: "#^Method App\\\\Providers\\\\FortifyServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
@@ -179,16 +129,6 @@ parameters:
 			message: "#^Method App\\\\Providers\\\\HorizonServiceProvider\\:\\:gate\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Providers/HorizonServiceProvider.php
-
-		-
-			message: "#^Method App\\\\Providers\\\\JetstreamServiceProvider\\:\\:boot\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Providers/JetstreamServiceProvider.php
-
-		-
-			message: "#^Method App\\\\Providers\\\\JetstreamServiceProvider\\:\\:configurePermissions\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Providers/JetstreamServiceProvider.php
 
 		-
 			message: "#^Method App\\\\Providers\\\\TelescopeServiceProvider\\:\\:gate\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
@@ -206,8 +146,8 @@ parameters:
 			path: database/factories/UserFactory.php
 
 		-
-			message: "#^Method Database\\\\Factories\\\\UserFactory\\:\\:withPersonalTeam\\(\\) should return \\$this\\(Database\\\\Factories\\\\UserFactory\\) but returns static\\(Database\\\\Factories\\\\UserFactory\\)\\.$#"
-			count: 2
+			message: "#^Method Database\\\\Factories\\\\UserFactory\\:\\:definition\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			count: 1
 			path: database/factories/UserFactory.php
 
 		-
@@ -231,12 +171,12 @@ parameters:
 			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
 
 		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:8\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
 
 		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:8\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
 
@@ -281,29 +221,9 @@ parameters:
 			path: tests/Feature/ApiTokenPermissionsTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\ApiTokenPermissionsTest\\:\\:test_api_token_permissions_can_be_updated\\(\\) has no return type specified\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: tests/Feature/ApiTokenPermissionsTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\AuthenticationTest\\:\\:test_login_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/AuthenticationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\AuthenticationTest\\:\\:test_users_can_authenticate_using_the_login_screen\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/AuthenticationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\AuthenticationTest\\:\\:test_users_can_not_authenticate_with_invalid_password\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/AuthenticationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\BrowserSessionsTest\\:\\:test_other_browser_sessions_can_be_logged_out\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/BrowserSessionsTest.php
 
 		-
 			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$name\\.$#"
@@ -316,18 +236,13 @@ parameters:
 			path: tests/Feature/CreateApiTokenTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\CreateApiTokenTest\\:\\:test_api_tokens_can_be_created\\(\\) has no return type specified\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: tests/Feature/CreateApiTokenTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\DeleteAccountTest\\:\\:test_correct_password_must_be_provided_before_account_can_be_deleted\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/DeleteAccountTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\DeleteAccountTest\\:\\:test_user_accounts_can_be_deleted\\(\\) has no return type specified\\.$#"
-			count: 1
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 2
 			path: tests/Feature/DeleteAccountTest.php
 
 		-
@@ -336,23 +251,13 @@ parameters:
 			path: tests/Feature/DeleteApiTokenTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\DeleteApiTokenTest\\:\\:test_api_tokens_can_be_deleted\\(\\) has no return type specified\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: tests/Feature/DeleteApiTokenTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\EmailVerificationTest\\:\\:test_email_can_be_verified\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/EmailVerificationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\EmailVerificationTest\\:\\:test_email_can_not_verified_with_invalid_hash\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/EmailVerificationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\EmailVerificationTest\\:\\:test_email_verification_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
-			count: 1
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 3
 			path: tests/Feature/EmailVerificationTest.php
 
 		-
@@ -361,97 +266,27 @@ parameters:
 			path: tests/Feature/Listeners/LibraryNewTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\PasswordConfirmationTest\\:\\:test_confirm_password_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/PasswordConfirmationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\PasswordConfirmationTest\\:\\:test_password_can_be_confirmed\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/PasswordConfirmationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\PasswordConfirmationTest\\:\\:test_password_is_not_confirmed_with_invalid_password\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/PasswordConfirmationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\PasswordResetTest\\:\\:test_password_can_be_reset_with_valid_token\\(\\) has no return type specified\\.$#"
-			count: 1
+			message: "#^Access to an undefined property object\\:\\:\\$token\\.$#"
+			count: 2
 			path: tests/Feature/PasswordResetTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\PasswordResetTest\\:\\:test_reset_password_link_can_be_requested\\(\\) has no return type specified\\.$#"
-			count: 1
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 4
 			path: tests/Feature/PasswordResetTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\PasswordResetTest\\:\\:test_reset_password_link_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/PasswordResetTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\PasswordResetTest\\:\\:test_reset_password_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/PasswordResetTest.php
-
-		-
-			message: "#^Access to an undefined property Livewire\\\\Testing\\\\TestableLivewire\\:\\:\\$state\\.$#"
+			message: "#^Access to an undefined property Livewire\\\\Features\\\\SupportTesting\\\\Testable\\:\\:\\$state\\.$#"
 			count: 2
 			path: tests/Feature/ProfileInformationTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\ProfileInformationTest\\:\\:test_current_profile_information_is_available\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/ProfileInformationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\ProfileInformationTest\\:\\:test_profile_information_can_be_updated\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/ProfileInformationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\RegistrationTest\\:\\:test_new_users_can_register\\(\\) has no return type specified\\.$#"
-			count: 1
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 3
 			path: tests/Feature/RegistrationTest.php
 
 		-
-			message: "#^Method Tests\\\\Feature\\\\RegistrationTest\\:\\:test_registration_screen_can_be_rendered\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/RegistrationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\RegistrationTest\\:\\:test_registration_screen_cannot_be_rendered_if_support_is_disabled\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/RegistrationTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\TwoFactorAuthenticationSettingsTest\\:\\:test_recovery_codes_can_be_regenerated\\(\\) has no return type specified\\.$#"
-			count: 1
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 3
 			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\TwoFactorAuthenticationSettingsTest\\:\\:test_two_factor_authentication_can_be_disabled\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\TwoFactorAuthenticationSettingsTest\\:\\:test_two_factor_authentication_can_be_enabled\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\UpdatePasswordTest\\:\\:test_current_password_must_be_correct\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/UpdatePasswordTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\UpdatePasswordTest\\:\\:test_new_passwords_must_match\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/UpdatePasswordTest.php
-
-		-
-			message: "#^Method Tests\\\\Feature\\\\UpdatePasswordTest\\:\\:test_password_can_be_updated\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/Feature/UpdatePasswordTest.php
 
