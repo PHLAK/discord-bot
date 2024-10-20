@@ -8,13 +8,6 @@ updates:
     assignees:
       - PHLAK
 
-  - package-ecosystem: npm
-    directory: "/"
-    schedule:
-      interval: monthly
-    assignees:
-      - PHLAK
-
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
