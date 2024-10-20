@@ -1,102 +1,12 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\CreateNewUser\\:\\:create\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Actions/Fortify/CreateNewUser.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\CreateNewUser\\:\\:create\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 2
-			path: app/Actions/Fortify/CreateNewUser.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Actions/Fortify/ResetUserPassword.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\ResetUserPassword\\:\\:reset\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 2
-			path: app/Actions/Fortify/ResetUserPassword.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserPassword\\:\\:update\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Actions/Fortify/UpdateUserPassword.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserPassword\\:\\:update\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 2
-			path: app/Actions/Fortify/UpdateUserPassword.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:update\\(\\) throws checked exception Illuminate\\\\Validation\\\\ValidationException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Actions/Fortify/UpdateUserProfileInformation.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Fortify\\\\UpdateUserProfileInformation\\:\\:update\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Actions/Fortify/UpdateUserProfileInformation.php
-
-		-
-			message: "#^Parameter \\#1 \\$photo of method App\\\\Models\\\\User\\:\\:updateProfilePhoto\\(\\) expects Illuminate\\\\Http\\\\UploadedFile, string given\\.$#"
-			count: 1
-			path: app/Actions/Fortify/UpdateUserProfileInformation.php
-
-		-
-			message: "#^Method App\\\\Actions\\\\Jetstream\\\\DeleteUser\\:\\:delete\\(\\) throws checked exception LogicException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Actions/Jetstream/DeleteUser.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\EncryptCookies\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Cookie\\\\Middleware\\\\EncryptCookies\\:\\:\\$except\\.$#"
-			count: 1
-			path: app/Http/Middleware/EncryptCookies.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\\:\\:\\$except\\.$#"
-			count: 1
-			path: app/Http/Middleware/PreventRequestsDuringMaintenance.php
-
-		-
-			message: "#^Method App\\\\Http\\\\Middleware\\\\RedirectIfAuthenticated\\:\\:handle\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Http/Middleware/RedirectIfAuthenticated.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\TrimStrings\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\\:\\:\\$except\\.$#"
-			count: 1
-			path: app/Http/Middleware/TrimStrings.php
-
-		-
-			message: "#^PHPDoc type array\\|string\\|null of property App\\\\Http\\\\Middleware\\\\TrustProxies\\:\\:\\$proxies is not covariant with PHPDoc type array\\<int, string\\>\\|string\\|null of overridden property Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\\:\\:\\$proxies\\.$#"
-			count: 1
-			path: app/Http/Middleware/TrustProxies.php
-
-		-
-			message: "#^PHPDoc type array of property App\\\\Http\\\\Middleware\\\\VerifyCsrfToken\\:\\:\\$except is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\VerifyCsrfToken\\:\\:\\$except\\.$#"
-			count: 1
-			path: app/Http/Middleware/VerifyCsrfToken.php
-
-		-
 			message: "#^Access to an undefined property object\\:\\:\\$payload\\.$#"
 			count: 14
 			path: app/Listeners/LibraryNew.php
 
 		-
 			message: "#^Method App\\\\Listeners\\\\LibraryNew\\:\\:embeds\\(\\) throws checked exception Exception but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Listeners/LibraryNew.php
-
-		-
-			message: "#^Method App\\\\Listeners\\\\LibraryNew\\:\\:embeds\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: app/Listeners/LibraryNew.php
-
-		-
-			message: "#^Method App\\\\Listeners\\\\LibraryNew\\:\\:handle\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
 			count: 1
 			path: app/Listeners/LibraryNew.php
 
@@ -111,182 +21,42 @@ parameters:
 			path: app/Listeners/LibraryNew.php
 
 		-
-			message: "#^Method App\\\\Providers\\\\AppServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Parameter \\#2 \\$string of function explode expects string, bool\\|string given\\.$#"
 			count: 1
-			path: app/Providers/AppServiceProvider.php
+			path: config/app.php
 
 		-
-			message: "#^Method App\\\\Providers\\\\BroadcastServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
 			count: 1
-			path: app/Providers/BroadcastServiceProvider.php
+			path: config/cache.php
 
 		-
-			message: "#^Method App\\\\Providers\\\\FortifyServiceProvider\\:\\:boot\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 2
-			path: app/Providers/FortifyServiceProvider.php
-
-		-
-			message: "#^Method App\\\\Providers\\\\HorizonServiceProvider\\:\\:gate\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
 			count: 1
-			path: app/Providers/HorizonServiceProvider.php
+			path: config/database.php
 
 		-
-			message: "#^Method App\\\\Providers\\\\TelescopeServiceProvider\\:\\:gate\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
 			count: 1
-			path: app/Providers/TelescopeServiceProvider.php
+			path: config/horizon.php
 
 		-
-			message: "#^Call to static method factory\\(\\) on an unknown class App\\\\Models\\\\Team\\.$#"
+			message: "#^Parameter \\#2 \\$string of function explode expects string, bool\\|string given\\.$#"
 			count: 1
-			path: database/factories/UserFactory.php
+			path: config/logging.php
 
 		-
-			message: "#^Method Database\\\\Factories\\\\UserFactory\\:\\:definition\\(\\) throws checked exception OverflowException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Parameter \\#1 \\$url of function parse_url expects string, bool\\|string given\\.$#"
 			count: 1
-			path: database/factories/UserFactory.php
+			path: config/mail.php
 
 		-
-			message: "#^Method Database\\\\Factories\\\\UserFactory\\:\\:definition\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
+			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
 			count: 1
-			path: database/factories/UserFactory.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_000000_create_users_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_000000_create_users_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_000000_create_users_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_000000_create_users_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_100000_create_password_resets_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_100000_create_password_resets_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_100000_create_password_resets_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:8\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table\\.php\\:8\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2019_08_19_000000_create_failed_jobs_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2019_08_19_000000_create_failed_jobs_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2019_08_19_000000_create_failed_jobs_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2019_12_14_000001_create_personal_access_tokens_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2019_12_14_000001_create_personal_access_tokens_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2021_09_05_232531_create_sessions_table\\.php\\:7\\:\\:down\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2021_09_05_232531_create_sessions_table.php
-
-		-
-			message: "#^Method class@anonymous/database/migrations/2021_09_05_232531_create_sessions_table\\.php\\:7\\:\\:up\\(\\) throws checked exception RuntimeException but it's missing from the PHPDoc @throws tag\\.$#"
-			count: 1
-			path: database/migrations/2021_09_05_232531_create_sessions_table.php
-
-		-
-			message: "#^Method Database\\\\Seeders\\\\DatabaseSeeder\\:\\:run\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: database/seeders/DatabaseSeeder.php
-
-		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:can\\(\\)\\.$#"
-			count: 3
-			path: tests/Feature/ApiTokenPermissionsTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: tests/Feature/ApiTokenPermissionsTest.php
-
-		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$name\\.$#"
-			count: 1
-			path: tests/Feature/CreateApiTokenTest.php
-
-		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:can\\(\\)\\.$#"
-			count: 2
-			path: tests/Feature/CreateApiTokenTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: tests/Feature/CreateApiTokenTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 2
-			path: tests/Feature/DeleteAccountTest.php
-
-		-
-			message: "#^Access to an undefined property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$id\\.$#"
-			count: 1
-			path: tests/Feature/DeleteApiTokenTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: tests/Feature/DeleteApiTokenTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 3
-			path: tests/Feature/EmailVerificationTest.php
+			path: config/session.php
 
 		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|false given\\.$#"
 			count: 1
 			path: tests/Feature/Listeners/LibraryNewTest.php
-
-		-
-			message: "#^Access to an undefined property object\\:\\:\\$token\\.$#"
-			count: 2
-			path: tests/Feature/PasswordResetTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 4
-			path: tests/Feature/PasswordResetTest.php
-
-		-
-			message: "#^Access to an undefined property Livewire\\\\Features\\\\SupportTesting\\\\Testable\\:\\:\\$state\\.$#"
-			count: 2
-			path: tests/Feature/ProfileInformationTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 3
-			path: tests/Feature/RegistrationTest.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 3
-			path: tests/Feature/TwoFactorAuthenticationSettingsTest.php
 
