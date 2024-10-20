@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <meta charset="utf-8">
-<meta name="description" content="{{ config('meta_description') }}">
+<meta name="description" content="PHLAKNET Discord Bot">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>PHLAKNET Discord Bot</title>
