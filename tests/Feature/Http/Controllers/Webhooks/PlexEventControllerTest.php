@@ -4,6 +4,7 @@ namespace Tests\Feature\Http\Controllers\Webhooks;
 
 use App\Events\PlexEventReceived;
 use App\Http\Controllers\Webhooks\PlexEventController;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
@@ -15,6 +16,8 @@ class PlexEventControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
+        Config::set('webhooks.key', 'test-key-please-ignore');
 
         Event::fake([PlexEventReceived::class]);
     }
@@ -57,6 +60,32 @@ class PlexEventControllerTest extends TestCase
         ]), ['payload' => 'INVALID_JSON']);
 
         $response->assertUnprocessable();
+
+        Event::assertNotDispatched(PlexEventReceived::class);
+    }
+
+    #[Test]
+    public function test_returns_an_error_when_it_does_not_have_a_key(): void
+    {
+        $response = $this->postJson(route('webhooks.plex-event'), [
+            'payload' => json_encode(['event' => 'library.new']),
+        ]);
+
+        $response->assertForbidden();
+
+        Event::assertNotDispatched(PlexEventReceived::class);
+    }
+
+    #[Test]
+    public function test_returns_an_error_when_it_uses_an_incorrect_key(): void
+    {
+        $response = $this->postJson(route('webhooks.plex-event', [
+            'key' => 'invalid-key',
+        ]), [
+            'payload' => json_encode(['event' => 'library.new']),
+        ]);
+
+        $response->assertForbidden();
 
         Event::assertNotDispatched(PlexEventReceived::class);
     }
