@@ -20,7 +20,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
           extensions: curl, dom, intl, json, mbstring, openssl, simplexml
           coverage: xdebug
 
@@ -41,7 +41,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
           extensions: curl, dom, intl, json, mbstring, openssl, simplexml
           coverage: xdebug
 
@@ -78,18 +78,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.3'
           extensions: curl, dom, intl, json, mbstring, openssl, simplexml
           coverage: xdebug
 
       - name: Install PHP Dependencies
         run: composer install --no-interaction --no-progress --no-scripts --prefer-dist
-
-      - name: Install JavaScript Dependencies
-        run: npm ci --no-audit --no-fund
-
-      - name: Compile Assets
-        run: npm run production --verbose --no-audit --no-fund
 
       - name: Run Tests
         run: php artisan test --without-tty

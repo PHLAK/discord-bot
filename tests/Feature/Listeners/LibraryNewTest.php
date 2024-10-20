@@ -9,9 +9,12 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-/** @covers \App\Listeners\LibraryNew */
+#[CoversClass(LibraryNew::class)]
 class LibraryNewTest extends TestCase
 {
     protected function setUp(): void
@@ -22,11 +25,30 @@ class LibraryNewTest extends TestCase
         config(['services.plex.enabled_types' => [MetadataType::ALBUM, MetadataType::MOVIE, MetadataType::SHOW]]);
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider expectedPaylodDataProvider
-     */
+    /** @return array<array<string>> */
+    public static function expectedPaylodDataProvider(): array
+    {
+        return [
+            ['library.new', 'Movies', 'movie'],
+            ['library.new', 'Shows', 'show'],
+            ['library.new', 'Music', 'album'],
+        ];
+    }
+
+    /** @return array<array<string>> */
+    public static function unexpectedPaylodDataProvider(): array
+    {
+        return [
+            ['library.new', 'Other', 'movie'],
+            ['library.new', 'Movies', 'other'],
+            ['media.play', 'Movies', 'movie'],
+            ['media.pause', 'Shows', 'show'],
+            ['media.resume', 'Music', 'album'],
+            ['media.stop', 'Other', 'other'],
+        ];
+    }
+
+    #[Test, DataProvider('expectedPaylodDataProvider')]
     public function it_should_queue_when_it_receieves_expected_payload_data(string $event, string $libraryTitle, string $metadataType): void
     {
         $payload = (object) [
@@ -40,11 +62,7 @@ class LibraryNewTest extends TestCase
         $this->assertTrue(App::make(LibraryNew::class)->shouldQueue(new PlexEventReceived($payload, null)));
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider unexpectedPaylodDataProvider
-     */
+    #[Test, DataProvider('unexpectedPaylodDataProvider')]
     public function it_should_not_queue_for_an_unexpected_event_type(string $event, string $libraryTitle, string $metadataType): void
     {
         $payload = (object) [
@@ -58,7 +76,7 @@ class LibraryNewTest extends TestCase
         $this->assertFalse(App::make(LibraryNew::class)->shouldQueue(new PlexEventReceived($payload, null)));
     }
 
-    /** @test */
+    #[Test]
     public function it_sends_a_webhook_request_for_an_episode(): void
     {
         Http::fake();
@@ -83,7 +101,7 @@ class LibraryNewTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function it_sends_a_webhook_request_for_a_movie_with_an_image(): void
     {
         Http::fake();
@@ -112,26 +130,5 @@ class LibraryNewTest extends TestCase
                     ],
                 ];
         });
-    }
-
-    public function expectedPaylodDataProvider(): array
-    {
-        return [
-            ['library.new', 'Movies', 'movie'],
-            ['library.new', 'Shows', 'show'],
-            ['library.new', 'Music', 'album'],
-        ];
-    }
-
-    public function unexpectedPaylodDataProvider(): array
-    {
-        return [
-            ['library.new', 'Other', 'movie'],
-            ['library.new', 'Movies', 'other'],
-            ['media.play', 'Movies', 'movie'],
-            ['media.pause', 'Shows', 'show'],
-            ['media.resume', 'Music', 'album'],
-            ['media.stop', 'Other', 'other'],
-        ];
     }
 }

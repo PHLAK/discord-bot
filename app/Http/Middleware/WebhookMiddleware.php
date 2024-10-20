@@ -8,12 +8,7 @@ use Illuminate\Http\Response;
 
 class WebhookMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @return mixed
-     */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         abort_unless($request->query('key') === config('webhooks.key'), Response::HTTP_FORBIDDEN, 'Forbidden');
 

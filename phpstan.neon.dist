@@ -14,7 +14,6 @@ parameters:
   level: 7
 
   checkFunctionNameCase: true
-  checkMissingIterableValueType: false
   checkModelProperties: true
 
   reportUnmatchedIgnoredErrors: false
@@ -32,6 +31,7 @@ parameters:
     uncheckedExceptionClasses:
       # - 'InvalidArgumentException'
       - 'PHPUnit\Framework\Exception'
+      - 'RuntimeException'
       - 'Symfony\Component\HttpKernel\Exception\HttpException'
 
   ignoreErrors:

@@ -4,7 +4,7 @@ namespace App\Support;
 
 class Embed
 {
-    /** Build a field array. */
+    /** @return array{name: string, value: string, inline: bool} */
     public static function field(string $name, string $value, bool $inline = false): array
     {
         return [
@@ -14,7 +14,7 @@ class Embed
         ];
     }
 
-    /** Build an inline field array. */
+    /** @return array{name: string, value: string, inline: bool} */
     public static function inlineField(string $name, string $value): array
     {
         return self::field($name, $value, true);
