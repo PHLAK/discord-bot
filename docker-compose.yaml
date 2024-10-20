@@ -8,7 +8,7 @@ services:
       - ${APP_PORT:-80}:80
     extra_hosts:
       - discord-bot.local:127.0.0.1
-      - host.docker.internal:${DOCKER_HOST_IP:-172.17.0.1}
+      - host.docker.internal:host-gateway
     volumes:
       - ./:/var/www/html
       - ./.docker/php/config/php.ini:/usr/local/etc/php/php.ini
@@ -51,23 +51,11 @@ services:
     user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
     command: php artisan horizon
 
-  npm:
-    container_name: discord-bot-npm
-    image: phlak/discord-bot:dev
-    volumes:
-      - ./:/var/www/html
-    ports:
-    - ${APP_PORT:-5173}:5173
-    user: ${HOST_USER_ID:-0}:${HOST_GROUP_ID:-0}
-    command: npm run dev
-
   artisan:
     container_name: discord-bot-artisan
     image: phlak/discord-bot:dev
     entrypoint: php artisan
-    depends_on:
-      - mysql
-      - redis
+    depends_on: [mysql, redis]
     profiles: [artisan]
     volumes:
       - ./:/var/www/html

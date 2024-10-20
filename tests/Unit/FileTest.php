@@ -4,12 +4,14 @@ namespace Tests\Unit;
 
 use App\File;
 use Illuminate\Http\UploadedFile;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\File */
+#[CoversClass(File::class)]
 class FileTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_be_instantiate_from_an_uploaded_file(): void
     {
         $file = File::createFromUploadedFile(
@@ -21,7 +23,7 @@ class FileTest extends TestCase
         $this->assertEquals('Test file; please ignore', $file->content);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_be_serialized_and_unserialized(): void
     {
         $file = File::createFromUploadedFile(

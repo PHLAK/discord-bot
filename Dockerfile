@@ -1,18 +1,13 @@
-FROM php:8.2-apache
+FROM php:8.3-apache
 LABEL maintainer="Chris Kankiewicz <Chris@ChrisKankiewicz.com>"
 
-COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
-COPY --from=node:20.9 /usr/local/bin/node /usr/local/bin/node
-COPY --from=node:20.9 /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
 
-RUN ln --symbolic ../lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-RUN ln --symbolic ../lib/node_modules/npm/bin/npx-cli.js /usr/local/bin/npx
+ENV HOME="/home/dev"
+ENV COMPOSER_HOME="${HOME}/.config/composer"
+ENV XDG_CONFIG_HOME="${HOME}/.config"
 
-ENV HOME="/tmp"
-ENV COMPOSER_ALLOW_SUPERUSER=1
-ENV COMPOSER_HOME="/tmp"
-ENV GNUPGHOME="/tmp"
-ENV XDG_CONFIG_HOME="/tmp/.config"
+RUN useradd --create-home --shell /bin/bash dev
 
 RUN a2enmod rewrite
 

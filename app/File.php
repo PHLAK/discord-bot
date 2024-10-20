@@ -6,14 +6,12 @@ use Illuminate\Http\UploadedFile;
 
 class File
 {
-    /** Create a new File. */
     public function __construct(
         public readonly string $name,
         public readonly string $extension,
         public readonly string $content
     ) {}
 
-    /** Serialize the object. */
     public function __serialize(): array
     {
         return [
@@ -23,7 +21,7 @@ class File
         ];
     }
 
-    /** Unserialize the object. */
+    /** @param array{name: string, extension: ?string, content: string} $data */
     public function __unserialize(array $data): void
     {
         $this->name = $data['name'];
@@ -31,7 +29,6 @@ class File
         $this->content = base64_decode($data['content']);
     }
 
-    /** Create a new File from an UploadedFile. */
     public static function createFromUploadedFile(UploadedFile $file): self
     {
         return new self($file->getClientOriginalName(), $file->extension(), $file->getContent());

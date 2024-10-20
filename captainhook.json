@@ -13,7 +13,10 @@
             {
                 "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting",
                 "options": [],
-                "conditions": []
+                "conditions": [],
+                "config": {
+                    "label": "Lint PHP files"
+                }
             },
             {
                 "action": "composer exec -- php-cs-fixer fix --ansi --config .php-cs-fixer.dist.php --dry-run {$STAGED_FILES|of-type:php}",
@@ -23,7 +26,10 @@
                         "exec": "\\CaptainHook\\App\\Hook\\Condition\\FileStaged\\OfType",
                         "args": ["php"]
                     }
-                ]
+                ],
+                "config": {
+                    "label": "Verify PHP coding standards"
+                }
             },
             {
                 "action": "composer exec -- phpstan analyze --ansi {$STAGED_FILES|of-type:php}",
@@ -33,7 +39,10 @@
                         "exec": "\\CaptainHook\\App\\Hook\\Condition\\FileStaged\\OfType",
                         "args": ["php"]
                     }
-                ]
+                ],
+                "config": {
+                    "label": "Run PHP static analysis"
+                }
             }
         ]
     },
@@ -67,7 +76,10 @@
                         "exec": "\\CaptainHook\\App\\Hook\\Condition\\FileChanged\\Any",
                         "args": [["composer.lock"]]
                     }
-                ]
+                ],
+                "config": {
+                    "label": "Install/update PHP dependencies"
+                }
             }
         ]
     }

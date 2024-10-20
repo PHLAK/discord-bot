@@ -54,13 +54,13 @@ class LibraryNew implements ShouldQueue
         ]);
     }
 
-    /** Get the middleware the job should pass through. */
+    /** @return array<mixed> */
     public function middleware(): array
     {
         return [new RateLimited('discord-webhooks')];
     }
 
-    /** Get the embeds for the received PLEX event. */
+    /** @return array<array<string, mixed>> */
     private function embeds(object $event, string $fileName = null): array
     {
         $embeds = match (MetadataType::tryFrom($event->payload->Metadata->type)) {
