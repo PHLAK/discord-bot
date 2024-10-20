@@ -1,6 +1,6 @@
 /.phpunit.cache
 /public/build
-/public/storage
+/public/storage/*
 /storage/*.key
 /vendor
 .env
