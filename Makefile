@@ -9,8 +9,8 @@ prod production: # Install and build application production dependencies
 env environment: # Bring up the development environment
 	@docker-compose up -d && php artisan migrate:fresh --seed
 
-update upgrade: # Update application dependencies and publish dependency assets
-	@composer update && php artisan horizon:publish && php artisan telescope:publish
+update upgrade: # Update application dependencies
+	@composer update
 
 outdated: # Check for outdated PHP and JavaScript dependencies
 	@composer outdated --direct
