@@ -20,3 +20,5 @@ RUN docker-php-ext-configure intl \
 
 COPY ./.docker/php/config/php.ini /usr/local/etc/php/php.ini
 COPY ./.docker/apache2/config/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+USER dev
