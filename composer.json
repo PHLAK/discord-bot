@@ -14,7 +14,7 @@
         "sentry/sentry-laravel": "^4.9"
     },
     "require-dev": {
-        "beyondcode/expose": "^2.6",
+        "beyondcode/expose": "^3.0",
         "captainhook/captainhook": "^5.23",
         "captainhook/plugin-composer": "^5.3",
         "fakerphp/faker": "^1.23",
@@ -22,7 +22,7 @@
         "nunomaduro/collision": "^8.1",
         "larastan/larastan": "^3.0",
         "phlak/coding-standards": "^3.0",
-        "phpunit/phpunit": "^11.0"
+        "phpunit/phpunit": "^12.0"
     },
     "autoload": {
         "exclude-from-classmap": [
