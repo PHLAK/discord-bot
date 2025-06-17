@@ -18,7 +18,7 @@ class PlexEventReceived
     public ?File $file = null;
 
     /** Create a new event instance. */
-    public function __construct(stdClass $payload, UploadedFile $file = null)
+    public function __construct(stdClass $payload, ?UploadedFile $file = null)
     {
         $this->payload = $payload;
 

@@ -61,7 +61,7 @@ class LibraryNew implements ShouldQueue
     }
 
     /** @return array<array<string, mixed>> */
-    private function embeds(object $event, string $fileName = null): array
+    private function embeds(object $event, ?string $fileName = null): array
     {
         $embeds = match (MetadataType::tryFrom($event->payload->Metadata->type)) {
             MetadataType::MOVIE => [
