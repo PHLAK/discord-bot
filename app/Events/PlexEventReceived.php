@@ -12,7 +12,9 @@ use stdClass;
 
 class PlexEventReceived
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     public stdClass $payload;
     public ?File $file = null;

@@ -20,7 +20,9 @@ use Illuminate\Support\Facades\Log;
 
 class LibraryNew implements ShouldQueue
 {
-    use InteractsWithQueue, ReportOnFailure, RetryWithBackoff;
+    use InteractsWithQueue;
+    use ReportOnFailure;
+    use RetryWithBackoff;
 
     public function __construct(
         public Filesystem $storage
