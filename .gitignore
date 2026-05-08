@@ -1,9 +1,47 @@
-/.phpunit.cache
-/public/build
-/public/storage/*
-/storage/*.key
-/vendor
-.env
-.env.*
-.php-cs-fixer.cache
-.phpunit.result.cache
+# ----------------------------------------
+# Application files and folders
+# ----------------------------------------
+
+/public/storage
+/storage/app/*
+/storage/framework/*
+/storage/logs/*
+
+/.env
+/.env.*
+!/.env.example
+
+# ----------------------------------------
+# Application dependencies
+# ----------------------------------------
+
+/vendor/
+
+# ----------------------------------------
+# Development files and folders
+# ----------------------------------------
+
+/.cache/
+/captainhook.config.json
+
+# ----------------------------------------
+# Laravel Boost generated files
+# ----------------------------------------
+
+/.ai/
+/.agents/
+/.amp/
+/.claude/
+/.codex/
+/.cursor/
+/.gemini/
+/.github/skills/
+/.junie/
+/.kiro/
+
+/.mcp.json
+/boost.json
+/opencode.json
+/AGENTS.md
+/CLAUDE.md
+/GEMINI.md
