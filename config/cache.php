@@ -94,6 +94,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Allowed Cache Serializable Classes
+    |--------------------------------------------------------------------------
+    |
+    | This option controls the classes that are allowed to be unserialized
+    | when retrieved from cache. Set to false to disallow all classes.
+    |
+    */
+
+    'serializable_classes' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Cache Key Prefix
     |--------------------------------------------------------------------------
     |
