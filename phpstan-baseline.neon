@@ -1,62 +1,74 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Access to an undefined property object\\:\\:\\$payload\\.$#"
+			message: '#^Access to an undefined property object\:\:\$payload\.$#'
+			identifier: property.notFound
 			count: 14
 			path: app/Listeners/LibraryNew.php
 
 		-
-			message: "#^Method App\\\\Listeners\\\\LibraryNew\\:\\:embeds\\(\\) throws checked exception Exception but it's missing from the PHPDoc @throws tag\\.$#"
+			message: '#^Method App\\Listeners\\LibraryNew\:\:embeds\(\) throws checked exception Exception but it''s missing from the PHPDoc @throws tag\.$#'
+			identifier: missingType.checkedException
 			count: 1
 			path: app/Listeners/LibraryNew.php
 
 		-
-			message: "#^Unable to resolve the template type TMakeKey in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			message: '#^Unable to resolve the template type TMakeKey in call to static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
+			identifier: argument.templateType
 			count: 1
 			path: app/Listeners/LibraryNew.php
 
 		-
-			message: "#^Unable to resolve the template type TMakeValue in call to method static method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:make\\(\\)$#"
+			message: '#^Unable to resolve the template type TMakeValue in call to static method Illuminate\\Support\\Collection\<\(int\|string\),mixed\>\:\:make\(\)$#'
+			identifier: argument.templateType
 			count: 1
 			path: app/Listeners/LibraryNew.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, bool\\|string given\\.$#"
+			message: '#^Parameter \#2 \$string of function explode expects string, bool\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: config/app.php
 
 		-
-			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
+			message: '#^Parameter \#1 \$title of static method Illuminate\\Support\\Str\:\:slug\(\) expects string, bool\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: config/cache.php
 
 		-
-			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
+			message: '#^Parameter \#1 \$title of static method Illuminate\\Support\\Str\:\:slug\(\) expects string, bool\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: config/database.php
 
 		-
-			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
+			message: '#^Parameter \#1 \$title of static method Illuminate\\Support\\Str\:\:slug\(\) expects string, bool\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: config/horizon.php
 
 		-
-			message: "#^Parameter \\#2 \\$string of function explode expects string, bool\\|string given\\.$#"
+			message: '#^Parameter \#2 \$string of function explode expects string, bool\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: config/logging.php
 
 		-
-			message: "#^Parameter \\#1 \\$url of function parse_url expects string, bool\\|string given\\.$#"
+			message: '#^Parameter \#1 \$url of function parse_url expects string, bool\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: config/mail.php
 
 		-
-			message: "#^Parameter \\#1 \\$title of static method Illuminate\\\\Support\\\\Str\\:\\:slug\\(\\) expects string, bool\\|string given\\.$#"
+			message: '#^Parameter \#1 \$title of static method Illuminate\\Support\\Str\:\:slug\(\) expects string, bool\|string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: config/session.php
 
 		-
-			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|false given\\.$#"
+			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|false given\.$#'
+			identifier: argument.type
 			count: 1
 			path: tests/Feature/Listeners/LibraryNewTest.php
 
