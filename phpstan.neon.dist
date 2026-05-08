@@ -1,17 +1,8 @@
-includes:
-  - vendor/larastan/larastan/extension.neon
-  - phpstan-baseline.neon
-
 parameters:
-
-  paths:
-    - app
-    - config
-    - database
-    - routes
-    - tests
-
   level: 7
+  paths: [app, config, database, routes, tests]
+
+  tmpDir: .cache/phpstan
 
   checkFunctionNameCase: true
   checkModelProperties: true
@@ -25,11 +16,7 @@ parameters:
       missingCheckedExceptionInThrows: true
       tooWideThrowType: true
 
-    # uncheckedExceptionRegexes:
-    #   - '/^GuzzleHttp\\Exception\\GuzzleException$/'
-
     uncheckedExceptionClasses:
-      # - 'InvalidArgumentException'
       - 'PHPUnit\Framework\Exception'
       - 'RuntimeException'
       - 'Symfony\Component\HttpKernel\Exception\HttpException'
@@ -37,3 +24,7 @@ parameters:
   ignoreErrors:
     - message: "#^Method .+ throws checked exception .+ but it's missing from the PHPDoc @throws tag.$#"
       path: tests/*
+
+includes:
+  - vendor/larastan/larastan/extension.neon
+  - phpstan-baseline.neon
