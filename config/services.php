@@ -41,6 +41,14 @@ return [
         'webhook_url' => env('DISCORD_WEBHOOK_URL'),
     ],
 
+    'pocketid' => [
+        'use_pkce' => env('POCKETID_USE_PKCE', false),
+        'base_url' => env('POCKETID_BASE_URL'),
+        'client_id' => env('POCKETID_CLIENT_ID'),
+        'client_secret' => env('POCKETID_CLIENT_SECRET'),
+        'redirect' => env('POCKETID_REDIRECT_URI'),
+    ],
+
     'plex' => [
         'libraries' => ['Movies', 'Music', 'Shows'],
         'enabled_types' => [

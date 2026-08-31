@@ -6,9 +6,12 @@ use App\Listeners\LibraryNew;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
+use SocialiteProviders\Manager\SocialiteWasCalled;
+use SocialiteProviders\PocketID;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Event::listen(function (SocialiteWasCalled $event) {
+            $event->extendSocialite('pocketid', PocketID\Provider::class);
+        });
+
         RateLimiter::for('discord-webhooks', function () {
             return Limit::perMinute(60);
         });

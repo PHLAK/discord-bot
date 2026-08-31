@@ -12,13 +12,15 @@ return Application::configure(
     web: __DIR__ . '/../routes/web.php',
     commands: __DIR__ . '/../routes/console.php',
     then: function (): void {
+        Route::name('oauth.')->prefix('oauth')->middleware(['web'])->group(base_path('routes/oauth.php'));
+
         Route::name('webhooks.')->prefix('webhooks')->middleware([
             App\Http\Middleware\WebhookMiddleware::class,
             App\Http\Middleware\AddTelescopeTags::class,
         ])->group(
             base_path('routes/webhooks.php')
         );
-    }
+    },
 )->withMiddleware(function (Middleware $middleware) {
     // ...
 })->withExceptions(function (Exceptions $exceptions) {

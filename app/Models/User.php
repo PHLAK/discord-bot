@@ -18,6 +18,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'pocketid_id',
+        'pocketid_token',
+        'pocketid_refresh_token',
     ];
 
     protected $hidden = [
