@@ -10,6 +10,7 @@
         "laravel/framework": "^13.0",
         "laravel/horizon": "^5.29",
         "laravel/nightwatch": "^1.7",
+        "laravel/pulse": "^1.8",
         "laravel/socialite": "^5.30",
         "laravel/telescope": "^5.2",
         "laravel/tinker": "^3.0",
@@ -22,7 +23,7 @@
         "captainhook/plugin-composer": "^5.3",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^3.0",
-        "laravel/boost": "^2.4",
+        "laravel/boost": "^2.7",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.1",
         "phlak/coding-standards": "^5.0",
@@ -48,10 +49,8 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
-        ],
-        "post-update-cmd": [
-            "test ! -f boost.json && true || php artisan boost:update --ansi --discover"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "php artisan boost:update --ansi --discover"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
