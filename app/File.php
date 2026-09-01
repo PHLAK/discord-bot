@@ -31,6 +31,6 @@ class File
 
     public static function createFromUploadedFile(UploadedFile $file): self
     {
-        return new self($file->getClientOriginalName(), $file->extension(), $file->getContent());
+        return new self($file->getClientOriginalName(), $file->extension() ?? '', $file->getContent());
     }
 }

@@ -4,4 +4,6 @@ use Illuminate\Support\Facades\Schedule;
 
 Schedule::command('horizon:snapshot')->everyFiveMinutes();
 
+Schedule::command('pulse:check')->everyMinute();
+
 Schedule::command('telescope:prune --hours=120')->daily();

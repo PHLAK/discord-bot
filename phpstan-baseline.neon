@@ -72,3 +72,15 @@ parameters:
 			count: 1
 			path: tests/Feature/Listeners/LibraryNewTest.php
 
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, bool\|string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/pulse.php
+
+		-
+			message: '#^Match expression does not handle remaining value\: string$#'
+			identifier: match.unhandled
+			count: 3
+			path: database/migrations/2026_08_31_225426_create_pulse_tables.php
+

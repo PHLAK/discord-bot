@@ -23,7 +23,7 @@ class PlexEventControllerTest extends TestCase
     }
 
     #[Test]
-    public function test_it_dispatches_an_event_when_a_plex_event_is_receieved(): void
+    public function it_dispatches_an_event_when_a_plex_event_is_received(): void
     {
         $response = $this->postJson(route('webhooks.plex-event', [
             'key' => config('webhooks.key'),
@@ -65,7 +65,7 @@ class PlexEventControllerTest extends TestCase
     }
 
     #[Test]
-    public function test_returns_an_error_when_it_does_not_have_a_key(): void
+    public function it_returns_an_error_when_it_does_not_have_a_key(): void
     {
         $response = $this->postJson(route('webhooks.plex-event'), [
             'payload' => json_encode(['event' => 'library.new']),
@@ -77,7 +77,7 @@ class PlexEventControllerTest extends TestCase
     }
 
     #[Test]
-    public function test_returns_an_error_when_it_uses_an_incorrect_key(): void
+    public function it_returns_an_error_when_it_uses_an_incorrect_key(): void
     {
         $response = $this->postJson(route('webhooks.plex-event', [
             'key' => 'invalid-key',

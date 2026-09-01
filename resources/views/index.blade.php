@@ -21,7 +21,7 @@
         <hr>
 
         <div align="center" style="margin-bottom: 1rem;">
-            <a href="#">Pulse</a> &bull; <a href="{{ route('telescope') }}">Telescope</a>
+            <a href="{{ route('pulse') }}">Pulse</a> &bull; <a href="{{ route('telescope') }}">Telescope</a>
         </div>
 
         <div style="display: flex; justify-content: center;">
