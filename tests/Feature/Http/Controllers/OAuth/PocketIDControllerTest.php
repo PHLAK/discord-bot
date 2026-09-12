@@ -17,6 +17,11 @@ class PocketIDControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+    /** Pocket ID issues JWTs well beyond the old 255-char varchar limit. */
+    private const ACCESS_TOKEN = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwb2NrZXQtaWQtMTIzIiwiaXNzIjoiaHR0cHM6Ly9wb2NrZXQuaWQifQ.eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwb2NrZXQtaWQtMTIzIiwiaXNzIjoiaHR0cHM6Ly9wb2NrZXQuaWQifQ.eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwb2NrZXQtaWQtMTIzIiwiaXNzIjoiaHR0cHM6Ly9wb2NrZXQuaWQifQ';
+
+    private const REFRESH_TOKEN = 'refresh-token-8f14e45fceea167a5a36dedd4bea2543-7d865e959b2466918c9863afca942d0f-7d865e959b2466918c9863afca942d0f-8f14e45fceea167a5a36dedd4bea2543-4b227777942f29a712e9a8c8f8b7e2c6-d81f9c5bea7bd0e921a9b62e0f4d1a99';
+
     #[Test]
     public function it_redirects_to_pocket_id_for_authorization(): void
     {
@@ -41,8 +46,8 @@ class PocketIDControllerTest extends TestCase
             'email' => 'jane@example.com',
             'name' => 'Jane Doe',
             'pocketid_id' => 'pocket-id-123',
-            'pocketid_token' => 'access-token',
-            'pocketid_refresh_token' => 'refresh-token',
+            'pocketid_token' => self::ACCESS_TOKEN,
+            'pocketid_refresh_token' => self::REFRESH_TOKEN,
         ]);
     }
 
@@ -60,8 +65,8 @@ class PocketIDControllerTest extends TestCase
             'email' => 'jane@example.com',
             'name' => 'Jane Doe',
             'pocketid_id' => 'pocket-id-123',
-            'pocketid_token' => 'access-token',
-            'pocketid_refresh_token' => 'refresh-token',
+            'pocketid_token' => self::ACCESS_TOKEN,
+            'pocketid_refresh_token' => self::REFRESH_TOKEN,
         ]);
     }
 
@@ -85,7 +90,7 @@ class PocketIDControllerTest extends TestCase
                 'name' => 'Jane Doe',
                 'email' => 'jane@example.com',
             ])
-            ->setToken('access-token')
-            ->setRefreshToken('refresh-token');
+            ->setToken(self::ACCESS_TOKEN)
+            ->setRefreshToken(self::REFRESH_TOKEN);
     }
 }
