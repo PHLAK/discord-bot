@@ -22,7 +22,7 @@ return Application::configure(
         );
     },
 )->withMiddleware(function (Middleware $middleware) {
-    // ...
+    $middleware->trustProxies(at: '*');
 })->withExceptions(function (Exceptions $exceptions) {
     Integration::handles($exceptions);
 })->create();
