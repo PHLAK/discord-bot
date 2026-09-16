@@ -10,4 +10,4 @@ paths:
 socialiteproviders/manager reads driver config from config("services.{provider}"), not a custom config file. Pocket ID creds (client_id/secret/redirect/base_url/use_pkce) must live under 'pocketid' in config/services.php. Do not reintroduce a separate config/oauth.php.
 
 ## Keep serializable_classes allowlisted for Pulse
-cache.serializable_classes must include Illuminate\Support\Collection and stdClass. With it set to false, Pulse's Livewire cards (which cache Collections of stdClass aggregate rows via RemembersQueries for 5s) unserialize to __PHP_Incomplete_Class and /pulse intermittently returns 500s. Never set the option back to plain false.
+cache.serializable_classes must include Illuminate\Support\Collection, Carbon\CarbonImmutable and stdClass. With it set to false, Pulse's Livewire cards (which cache Collections of stdClass aggregate rows and CarbonImmutable timestamps via RemembersQueries for 5s) unserialize to __PHP_Incomplete_Class and /pulse intermittently returns 500s. Never set the option back to plain false.

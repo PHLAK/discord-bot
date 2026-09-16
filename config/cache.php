@@ -104,6 +104,7 @@ return [
 
     'serializable_classes' => [
         Illuminate\Support\Collection::class,
+        Carbon\CarbonImmutable::class,
         stdClass::class,
     ],
 
