@@ -9,7 +9,6 @@
         "guzzlehttp/guzzle": "^7.9",
         "laravel/framework": "^13.0",
         "laravel/horizon": "^5.29",
-        "laravel/nightwatch": "^1.7",
         "laravel/pulse": "^1.8",
         "laravel/socialite": "^5.30",
         "laravel/telescope": "^5.2",
